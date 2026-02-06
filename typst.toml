@@ -1,0 +1,8 @@
+[package]
+name = "heh-template"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Woomymy", "Hana"]
+license = "MIT"
+description = "Unofficial HEH template for typst"
+
