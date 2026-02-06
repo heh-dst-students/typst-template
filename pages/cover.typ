@@ -31,8 +31,8 @@
         row-gutter: 5pt,
 
         image(strfmt("../{}", campus_config.address_icon_path)), text(campus_config.address_line1 + linebreak() + campus_config.address_line2),
-        image(strfmt("../{}", campus_config.phone_icon_path)), text(campus_config.phone_nr),
-        image(strfmt("../{}", campus_config.mail_icon_path)), text(campus_config.mail),
+        image(strfmt("../{}", campus_config.phone_icon_path)), link("tel:" + campus_config.phone_nr_short, campus_config.phone_nr_pretty),
+        image(strfmt("../{}", campus_config.mail_icon_path)), link("mailto:" + campus_config.mail, campus_config.mail),
       ) +
       box(
         fill: campus_config.primary_color,

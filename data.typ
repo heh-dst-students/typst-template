@@ -9,7 +9,8 @@
 
     address_line1: "Avenue Victor Maistriau 8a",
     address_line2: "B-7000 Mons",
-    phone_nr: "+32 (0)65 33 81 54",
+    phone_nr_pretty: "+32 (0)65 33 81 54",
+    phone_nr_short: "+3265338154",
     mail: "scitech-mons@heh.be",
 
     full_name: "Département des sciences et technologies",
