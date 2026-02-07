@@ -15,6 +15,8 @@
   monochrome: false,
   monochromeimages: true,
 
+  show_outline: true,
+
   font: "Open Sans",
 
   doc
@@ -72,12 +74,18 @@
 
   pagebreak()
   
-    show heading: set text(weight: "medium") if not monochrome
-    show heading.where(level: 1): set text(fill: decorations_color) if not monochrome
-    show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not monochrome
-    show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not monochrome
+  show heading: set text(weight: "medium") if not monochrome
+  show heading.where(level: 1): set text(fill: decorations_color) if not monochrome
+  show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not monochrome
+  show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not monochrome
 
-    show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
-    show link: it => if monochrome { underline(it) } else { it }
+  show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
+  show link: it => if monochrome { underline(it) } else { it }
+
+  if show_outline {
+    outline(title: "Table des matières")
+    pagebreak()
+  }
+
   doc
 }
