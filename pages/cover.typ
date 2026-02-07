@@ -1,3 +1,5 @@
+#import "../utils/vsvg.typ": vsvg_heh
+
 #let heh_cover_page(
   campus_config: (),
   document_title: "Titre",
@@ -14,7 +16,8 @@
   #set text(font: "Inter")
 
   #box(
-    image(campus_config.full_logo_path, width: 40%)
+    vsvg_heh(
+      source: "../assets/icons/heh-logo.vsvg", campus_config, width: 40%)
   )
   #h(1fr)
   Année académique #text(year, fill: campus_config.primary_color)
@@ -28,9 +31,11 @@
         align: horizon,
         row-gutter: 5pt,
 
-        image(campus_config.address_icon_path), text(campus_config.address_line1 + linebreak() + campus_config.address_line2),
-        image(campus_config.phone_icon_path), link("tel:" + campus_config.phone_nr_short, campus_config.phone_nr_pretty),
-        image(campus_config.mail_icon_path), link("mailto:" + campus_config.mail, campus_config.mail),
+        vsvg_heh(
+          source: "../assets/icons/address.vsvg", campus_config), text(campus_config.address_line1 + linebreak() + campus_config.address_line2),
+        vsvg_heh(
+          source: "../assets/icons/phone.vsvg", campus_config), link("tel:" + campus_config.phone_nr_short, campus_config.phone_nr_pretty),
+        vsvg_heh(source: "../assets/icons/mail.vsvg", campus_config), link("mailto:" + campus_config.mail, campus_config.mail),
       ) +
       box(
         fill: campus_config.primary_color,

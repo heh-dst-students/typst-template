@@ -1,6 +1,8 @@
 #let campus_configurations = (
   "DST": (
     short_name: "DST",
+    title: "Sciences",
+    subtitle: "et technologies",
     pretty_name: "Sciences et technologies",
     location: "Mons",
 
@@ -14,10 +16,23 @@
     mail: "scitech-mons@heh.be",
 
     full_name: "Département des sciences et technologies",
+  ),
+  "DSS-MS": (
+    short_name: "DSS-MS",
+    title: "Sciences",
+    subtitle: "sociales",
+    pretty_name: "Sciences sociales",
+    location: "Mons",
 
-    full_logo_path: "/assets/logos/dst-logo-full.svg",
-    address_icon_path: "/assets/icons/dst-address.svg",
-    phone_icon_path: "/assets/icons/dst-phone.svg",
-    mail_icon_path: "/assets/icons/dst-mail.svg"
+    primary_color: rgb("#D4641B"),
+    onprimary_color: rgb("#FFFFFF"),
+
+    address_line1: "Avenue Victor Maistriau 13",
+    address_line2: "B-7000 Mons",
+    phone_nr_pretty: "+32(0)65 39 48 90",
+    phone_nr_short: "+3265394890",
+    mail: "social-mons@heh.be",
+
+    full_name: "Département des sciences sociales",
   )
 )
