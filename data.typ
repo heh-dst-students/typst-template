@@ -15,9 +15,9 @@
 
     full_name: "Département des sciences et technologies",
 
-    full_logo_path: "assets/logos/dst-logo-full.svg",
-    address_icon_path: "assets/icons/dst-address.svg",
-    phone_icon_path: "assets/icons/dst-phone.svg",
-    mail_icon_path: "assets/icons/dst-mail.svg"
+    full_logo_path: "/assets/logos/dst-logo-full.svg",
+    address_icon_path: "/assets/icons/dst-address.svg",
+    phone_icon_path: "/assets/icons/dst-phone.svg",
+    mail_icon_path: "/assets/icons/dst-mail.svg"
   )
 )

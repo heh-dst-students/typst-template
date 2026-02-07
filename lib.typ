@@ -12,6 +12,8 @@
     ("Xy Z", "xy.z@std.heh.be"),
   ),
   year: "2025 - 2026",
+  monochrome: false,
+  monochromeimages: true,
 
   doc
 ) = {
@@ -21,6 +23,41 @@
   set document(title: document_description)
 
   let campus_config = campus_configurations.at(campus)
+
+  if monochrome {
+    campus_config.primary_color = rgb("#333333")
+    campus_config.onprimary_color = rgb("#FFFFFF")
+    campus_config.full_logo_path = "/assets/logos/mono-logo-full.svg"
+    campus_config.address_icon_path = "/assets/icons/mono-address.svg"
+    campus_config.phone_icon_path = "/assets/icons/mono-phone.svg"
+    campus_config.mail_icon_path = "/assets/icons/mono-mail.svg"
+  }
+  
+  show image: it => {
+    if monochromeimages and monochrome and type(it.source) == str {
+      import "@preview/grayness:0.5.0" : plg
+      let source = read(it.source, encoding: none)
+
+      let graybytes = if it.source.ends-with("svg") {
+        plg.svg_grayscale(source)
+      } else {
+        plg.grayscale(source)
+      }
+
+      image(
+        graybytes,
+        alt: it.alt,
+        width: it.width,
+        height: it.height,
+        page: it.page,
+        fit: it.fit,
+        scaling: it.scaling,
+        icc: it.icc
+      )
+    } else {
+      it
+    }
+  }
 
   heh_cover_page(
     campus_config: campus_config,

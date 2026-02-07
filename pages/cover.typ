@@ -1,5 +1,3 @@
-#import "@preview/oxifmt:1.0.0" : strfmt
-
 #let heh_cover_page(
   campus_config: (),
   document_title: "Titre",
@@ -16,7 +14,7 @@
   #set text(font: "Inter")
 
   #box(
-    image(strfmt("../{}", campus_config.full_logo_path), width: 40%)
+    image(campus_config.full_logo_path, width: 40%)
   )
   #h(1fr)
   Année académique #text(year, fill: campus_config.primary_color)
@@ -30,9 +28,9 @@
         align: horizon,
         row-gutter: 5pt,
 
-        image(strfmt("../{}", campus_config.address_icon_path)), text(campus_config.address_line1 + linebreak() + campus_config.address_line2),
-        image(strfmt("../{}", campus_config.phone_icon_path)), link("tel:" + campus_config.phone_nr_short, campus_config.phone_nr_pretty),
-        image(strfmt("../{}", campus_config.mail_icon_path)), link("mailto:" + campus_config.mail, campus_config.mail),
+        image(campus_config.address_icon_path), text(campus_config.address_line1 + linebreak() + campus_config.address_line2),
+        image(campus_config.phone_icon_path), link("tel:" + campus_config.phone_nr_short, campus_config.phone_nr_pretty),
+        image(campus_config.mail_icon_path), link("mailto:" + campus_config.mail, campus_config.mail),
       ) +
       box(
         fill: campus_config.primary_color,
@@ -73,7 +71,7 @@
         .map(it => it.at(0) + linebreak() + link("mailto:" + it.at(1), it.at(1)))
         .join(linebreak())),
       
-      image("../assets/logos/wbe.svg", alt: "Logo de WBE (Wallonie-Bruxelles Enseignement)", height: 5%)
+      image("/assets/logos/wbe.svg", alt: "Logo de WBE (Wallonie-Bruxelles Enseignement)", height: 5%)
     )
   ]
 ]

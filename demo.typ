@@ -1,4 +1,6 @@
 #import "lib.typ" : heh_template
 
-#show: doc => heh_template(doc)
+#show: heh_template.with(
+  monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"
+)
 
