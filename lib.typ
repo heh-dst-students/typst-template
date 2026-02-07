@@ -15,11 +15,15 @@
   monochrome: false,
   monochromeimages: true,
 
+  font: "Open Sans",
+
   doc
 ) = {
+  let decorations_color = rgb("#2F5496")
+
   set page("a4")
   set heading(numbering: "1.")
-  set text(lang: "fr")
+  set text(font: (font), lang: "fr")
 
   set document(title: document_description)
 
@@ -67,6 +71,13 @@
   )
 
   pagebreak()
+  
+    show heading: set text(weight: "medium") if not monochrome
+    show heading.where(level: 1): set text(fill: decorations_color) if not monochrome
+    show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not monochrome
+    show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not monochrome
 
+    show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
+    show link: it => if monochrome { underline(it) } else { it }
   doc
 }
