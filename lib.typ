@@ -25,13 +25,6 @@
   set heading(numbering: "1.")
   set text(font: (font))
 
-  show heading: set text(weight: "medium")
-  show heading.where(level: 1): set text(fill: decorations_color)
-  show heading.where(level: 2): set text(fill: decorations_color.lighten(5%))
-  show heading.where(level: 3): set text(fill: decorations_color.lighten(10%))
-
-  show link: set text(fill: decorations_color.lighten(15%))
-
   set document(title: document_description)
 
   let campus_config = campus_configurations.at(campus)
@@ -82,6 +75,13 @@
   )
 
   pagebreak()
+  
+    show heading: set text(weight: "medium") if not monochrome
+    show heading.where(level: 1): set text(fill: decorations_color) if not monochrome
+    show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not monochrome
+    show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not monochrome
 
+    show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
+    show link: it => if monochrome { underline(it) } else { it }
   doc
 }
