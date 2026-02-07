@@ -7,5 +7,5 @@
 - DSS-MS
 - DSEE-TO
 - DSS-TO
-- DFIN-TO
+- DECO
 
