@@ -19,6 +19,7 @@
 ) = {
   set page("a4")
   set heading(numbering: "1.")
+  set text(lang: "fr")
 
   set document(title: document_description)
 
