@@ -15,10 +15,22 @@
   monochrome: false,
   monochromeimages: true,
 
+  font: "Open Sans",
+
   doc
 ) = {
+  let decorations_color = rgb("#2F5496")
+
   set page("a4")
   set heading(numbering: "1.")
+  set text(font: (font))
+
+  show heading: set text(weight: "medium")
+  show heading.where(level: 1): set text(fill: decorations_color)
+  show heading.where(level: 2): set text(fill: decorations_color.lighten(5%))
+  show heading.where(level: 3): set text(fill: decorations_color.lighten(10%))
+
+  show link: set text(fill: decorations_color.lighten(15%))
 
   set document(title: document_description)
 
