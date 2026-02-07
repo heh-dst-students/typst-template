@@ -17,7 +17,7 @@
 
   #box(
     vsvg_heh(
-      source: "../assets/icons/heh-logo.vsvg", campus_config, width: 40%)
+      source: "../assets/logos/heh-logo.vsvg", campus_config, width: 40%)
   )
   #h(1fr)
   Année académique #text(year, fill: campus_config.primary_color)

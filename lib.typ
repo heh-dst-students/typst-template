@@ -23,7 +23,7 @@
 
   set page("a4")
   set heading(numbering: "1.")
-  set text(font: (font))
+  set text(font: (font), lang: "fr")
 
   set document(title: document_description)
 
@@ -32,10 +32,6 @@
   if monochrome {
     campus_config.primary_color = rgb("#333333")
     campus_config.onprimary_color = rgb("#FFFFFF")
-    campus_config.full_logo_path = "/assets/logos/mono-logo-full.svg"
-    campus_config.address_icon_path = "/assets/icons/mono-address.svg"
-    campus_config.phone_icon_path = "/assets/icons/mono-phone.svg"
-    campus_config.mail_icon_path = "/assets/icons/mono-mail.svg"
   }
   
   show image: it => {
