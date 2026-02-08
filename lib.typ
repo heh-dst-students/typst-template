@@ -1,5 +1,6 @@
 #import "pages/cover.typ" : heh_cover_page
 #import "data.typ" : campus_configurations
+#import "utils/vsvg.typ": vsvg_heh
 
 #let heh_template(
   campus: "DST",
@@ -35,6 +36,38 @@
     campus_config.primary_color = rgb("#333333")
     campus_config.onprimary_color = rgb("#FFFFFF")
   }
+
+  set page(
+      header: context {
+        if counter(page).get().first() > 0 {
+          [ 
+            #columns(2)[
+              #vsvg_heh(
+            source: "../assets/logos/heh-logo.vsvg",
+            campus_config,
+            width: 200pt,
+            )
+
+            #colbreak()
+            #align(right)[
+              Année académique #text(year, fill: campus_config.primary_color) \ #document_title
+            ]
+            ]
+          ]
+        }
+      },
+      margin: (top: 125pt),
+      footer: context {
+        if counter(page).get().first() > 0 {
+          align(right)[
+              #counter(page).display(
+              "1/1",
+              both: true
+            )
+          ]
+        }
+      }
+  )
   
   show image: it => {
     if monochromeimages and monochrome and type(it.source) == str {
@@ -61,6 +94,8 @@
       it
     }
   }
+
+  counter(page).update(0)
 
   heh_cover_page(
     campus_config: campus_config,
