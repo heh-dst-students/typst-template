@@ -78,7 +78,7 @@
         .join(linebreak())),
       
       image("/assets/logos/wbe.svg", alt: "Logo de WBE (Wallonie-Bruxelles Enseignement)", height: 5%),
-      image("/assets/logos/ph.svg", alt: "Logo de WBE (Wallonie-Bruxelles Enseignement)", height: 5%)
+      image("/assets/logos/ph.svg", alt: "Logo du Pôle Hainuyer", height: 5%)
     )
   ]
 ]

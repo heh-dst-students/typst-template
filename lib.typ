@@ -36,38 +36,6 @@
     campus_config.primary_color = rgb("#333333")
     campus_config.onprimary_color = rgb("#FFFFFF")
   }
-
-  set page(
-      header: context {
-        if counter(page).get().first() > 0 {
-          [ 
-            #columns(2)[
-              #vsvg_heh(
-            source: "../assets/logos/heh-logo.vsvg",
-            campus_config,
-            width: 200pt,
-            )
-
-            #colbreak()
-            #align(right)[
-              Année académique #text(year, fill: campus_config.primary_color) \ #document_title
-            ]
-            ]
-          ]
-        }
-      },
-      margin: (top: 125pt),
-      footer: context {
-        if counter(page).get().first() > 0 {
-          align(right)[
-              #counter(page).display(
-              "1/1",
-              both: true
-            )
-          ]
-        }
-      }
-  )
   
   show image: it => {
     if monochromeimages and monochrome and type(it.source) == str {
@@ -95,8 +63,6 @@
     }
   }
 
-  counter(page).update(0)
-
   heh_cover_page(
     campus_config: campus_config,
     document_title: document_title,
@@ -116,6 +82,34 @@
 
   show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
   show link: it => if monochrome { underline(it) } else { it }
+
+  set page(
+    header: {
+      columns(2)[
+        #vsvg_heh(
+            source: "../assets/logos/heh-logo.vsvg",
+            campus_config,
+            width: 200pt,
+        )
+
+        #colbreak()
+        #align(right)[
+              Année académique #text(year, fill: campus_config.primary_color) \ #document_title
+        ]
+      ]
+    },
+    margin: (top: 125pt),
+    footer: context {
+      align(right)[
+        #counter(page).display(
+          "1/1",
+          both: true
+        )
+      ]
+    }
+  )
+  
+  counter(page).update(1)
 
   if show_outline {
     outline(title: "Table des matières")
