@@ -12,8 +12,8 @@
   #let campus_config = campus_config_fn()
 
   #set page(margin: (left: 5%, top: 5%, right: 5%, bottom: 5%))
-  #set text(font: "Inter")
-  
+  #set text(font: ("Roboto", "Inter"))
+
   #box(
     vsvg_heh(
       source: "../assets/logos/heh-logo.vsvg", campus_config: campus_config, width: 40%)
