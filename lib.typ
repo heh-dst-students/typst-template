@@ -85,19 +85,19 @@
   show link: it => if print_config.monochrome { underline(it) } else { it }
 
   set page(
-    header: context header_style.with(
+    header: context header_style(
       document_config: document_config,
       print_config: print_config,
       campus_config: campus_config,
       ..header_extra_params
-    )(),
+    ),
     margin: (top: 125pt),
-    footer: context footer_style.with(
+    footer: context footer_style(
       document_config: document_config,
       print_config: print_config,
       campus_config: campus_config,
       ..footer_extra_params
-    )()
+    )
   )
   
   counter(page).update(1)
