@@ -1,44 +1,45 @@
 #import "pages/cover.typ" : heh_cover_page
-#import "data.typ" : campus_configurations
-#import "utils/vsvg.typ": vsvg_heh
+#import "data/config.typ"
+#import "data/campus.typ"
+#import "utils/vsvg.typ" : vsvg_heh
+
+#import "headers/headers.typ"
+#import "footers/footers.typ"
 
 #let heh_template(
-  campus: "DST",
-  document_title: "Titre",
-  document_description: "Description",
-  formation_name: "Bachelier en Informatique",
-  orientation_name: "Orientation Développement",
-  authors_names_mails: (
-    ("Prenom Nom", "prenom.nom@std.heh.be"),
-    ("Xy Z", "xy.z@std.heh.be"),
-  ),
-  year: "2025 - 2026",
-  monochrome: false,
-  monochromeimages: true,
+  document_config_fn: config.default_document_config,
+  print_config_fn: config.default_print_config,
+  
+  campus_config_fn: campus.dst_config,
 
-  show_outline: true,
-
-  font: "Open Sans",
+  header_style: headers.logo_title,
+  footer_style: footers.page_numbers,
 
   doc
 ) = {
-  let decorations_color = rgb("#2F5496")
+  let document_config = document_config_fn()
+  let print_config = print_config_fn()
 
+  if print_config.monochrome {
+    campus_config_fn = campus_config_fn.with(
+      style: campus.default_style_config.with(
+        primary_color: black,
+        onprimary_color: white,
+        decorations_color: black
+      )
+    )
+  }
+
+  let campus_config = campus_config_fn()
+  
   set page("a4")
   set heading(numbering: "1.")
-  set text(font: (font), lang: "fr")
+  set text(font: (print_config.font), lang: print_config.lang)
 
-  set document(title: document_description)
+  set document(title: document_config.doc_description)
 
-  let campus_config = campus_configurations.at(campus)
-
-  if monochrome {
-    campus_config.primary_color = rgb("#333333")
-    campus_config.onprimary_color = rgb("#FFFFFF")
-  }
-  
   show image: it => {
-    if monochromeimages and monochrome and type(it.source) == str {
+    if print_config.monochromeimages and print_config.monochrome and type(it.source) == str {
       import "@preview/grayness:0.5.0" : plg
       let source = read(it.source, encoding: none)
 
@@ -64,37 +65,35 @@
   }
 
   heh_cover_page(
-    campus_config: campus_config,
-    document_title: document_title,
-    document_description: document_description,
-    formation_name: formation_name,
-    orientation_name: orientation_name,
-    authors_names_mails: authors_names_mails,
-    year: year
+    document_config_fn: document_config_fn,
+    print_config_fn: print_config_fn,
+    campus_config_fn: campus_config_fn
   )
 
   pagebreak()
   
-  show heading: set text(weight: "medium") if not monochrome
-  show heading.where(level: 1): set text(fill: decorations_color) if not monochrome
-  show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not monochrome
-  show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not monochrome
+  let decorations_color = campus_config.style.decorations_color
 
-  show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
-  show link: it => if monochrome { underline(it) } else { it }
+  show heading: set text(weight: "medium") if not print_config.monochrome
+  show heading.where(level: 1): set text(fill: decorations_color) if not print_config.monochrome
+  show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not print_config.monochrome
+  show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not print_config.monochrome
+
+  show link: set text(fill: decorations_color.lighten(15%)) if not print_config.monochrome
+  show link: it => if print_config.monochrome { underline(it) } else { it }
 
   set page(
     header: {
       columns(2)[
         #vsvg_heh(
             source: "../assets/logos/heh-logo.vsvg",
-            campus_config,
+            campus_config: campus_config,
             width: 200pt,
         )
 
         #colbreak()
         #align(right)[
-              Année académique #text(year, fill: campus_config.primary_color) \ #document_title
+              Année académique #text(document_config.year, fill: campus_config.style.primary_color) \ #document_config.doc_title
         ]
       ]
     },
@@ -111,7 +110,7 @@
   
   counter(page).update(1)
 
-  if show_outline {
+  if print_config.show_outline {
     outline(title: "Table des matières")
     pagebreak()
   }
