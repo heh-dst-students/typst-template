@@ -13,7 +13,9 @@
   campus_config_fn: campus.dst_config,
 
   header_style: headers.logo_title,
+  header_extra_params: (),
   footer_style: footers.page_numbers,
+  footer_extra_params: (),
 
   doc
 ) = {
@@ -83,29 +85,19 @@
   show link: it => if print_config.monochrome { underline(it) } else { it }
 
   set page(
-    header: {
-      columns(2)[
-        #vsvg_heh(
-            source: "../assets/logos/heh-logo.vsvg",
-            campus_config: campus_config,
-            width: 200pt,
-        )
-
-        #colbreak()
-        #align(right)[
-              Année académique #text(document_config.year, fill: campus_config.style.primary_color) \ #document_config.doc_title
-        ]
-      ]
-    },
+    header: context header_style.with(
+      document_config: document_config,
+      print_config: print_config,
+      campus_config: campus_config,
+      ..header_extra_params
+    )(),
     margin: (top: 125pt),
-    footer: context {
-      align(right)[
-        #counter(page).display(
-          "1/1",
-          both: true
-        )
-      ]
-    }
+    footer: context footer_style.with(
+      document_config: document_config,
+      print_config: print_config,
+      campus_config: campus_config,
+      ..footer_extra_params
+    )()
   )
   
   counter(page).update(1)

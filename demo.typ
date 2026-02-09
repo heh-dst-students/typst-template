@@ -6,7 +6,7 @@
       logo_title: "Scientifique !"
     )
   ),
-  print_config_fn: config.default_print_config.with(monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true")
+  print_config_fn: config.default_print_config.with(monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"),
 )
 
 = Hello there
