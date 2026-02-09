@@ -87,7 +87,7 @@
 
 #let dss_style_config() = {
   default_style_config.with(
-    primary_color: rgb("#D4641B"),
+    primary_color: rgb("#EB6922"),
     onprimary_color: rgb("#FFFFFF"),
   )
 }
@@ -155,7 +155,7 @@
 
 #let dsee_style_config() = {
   default_style_config.with(
-    primary_color: rgb("#B73B6F"),
+    primary_color: rgb("#B83A6E"),
     onprimary_color: rgb("#FFFFFF"),
   )
 }
@@ -223,7 +223,7 @@
 
 #let deco_style_config() = {
   default_style_config.with(
-    primary_color: rgb("#6770AC"),
+    primary_color: rgb("#6E5EA5"),
     onprimary_color: rgb("#FFFFFF"),
   )
 }
