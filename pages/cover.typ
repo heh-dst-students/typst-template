@@ -71,12 +71,14 @@
   #v(1fr)
 
   #align(bottom)[
-    #grid(columns: (1fr, auto),
+    #grid(columns: (1fr, auto, auto),
+      gutter: 24pt,
       text(authors_names_mails
         .map(it => it.at(0) + linebreak() + link("mailto:" + it.at(1), it.at(1)))
         .join(linebreak())),
       
-      image("/assets/logos/wbe.svg", alt: "Logo de WBE (Wallonie-Bruxelles Enseignement)", height: 5%)
+      image("/assets/logos/wbe.svg", alt: "Logo de WBE (Wallonie-Bruxelles Enseignement)", height: 5%),
+      image("/assets/logos/ph.svg", alt: "Logo du Pôle Hainuyer", height: 5%)
     )
   ]
 ]

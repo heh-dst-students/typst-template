@@ -1,5 +1,6 @@
 #import "pages/cover.typ" : heh_cover_page
 #import "data.typ" : campus_configurations
+#import "utils/vsvg.typ": vsvg_heh
 
 #let heh_template(
   campus: "DST",
@@ -81,6 +82,34 @@
 
   show link: set text(fill: decorations_color.lighten(15%)) if not monochrome
   show link: it => if monochrome { underline(it) } else { it }
+
+  set page(
+    header: {
+      columns(2)[
+        #vsvg_heh(
+            source: "../assets/logos/heh-logo.vsvg",
+            campus_config,
+            width: 200pt,
+        )
+
+        #colbreak()
+        #align(right)[
+              Année académique #text(year, fill: campus_config.primary_color) \ #document_title
+        ]
+      ]
+    },
+    margin: (top: 125pt),
+    footer: context {
+      align(right)[
+        #counter(page).display(
+          "1/1",
+          both: true
+        )
+      ]
+    }
+  )
+  
+  counter(page).update(1)
 
   if show_outline {
     outline(title: "Table des matières")
