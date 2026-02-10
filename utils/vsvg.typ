@@ -1,7 +1,8 @@
 #let vsvg(
   source: "image.vsvg",
   params: ((key: "variable", value: "value")),
-  ..args) = {
+  ..args
+  ) = {
   let imageString = read(source)
 
   for param in params {
@@ -16,14 +17,14 @@
 
 #let vsvg_heh(
   source: "image.vsvg",
-  campus_config,
+  campus_config: (),
   ..args
 ) = {
   vsvg(
     source: source,
     params: (
-      (key: "color",  value: campus_config.primary_color.to-hex()),
-      (key: "title", value: campus_config.title),
-      (key: "subtitle", value: campus_config.subtitle)
+      (key: "color",  value: campus_config.style.primary_color.to-hex()),
+      (key: "title", value: campus_config.naming.logo_title),
+      (key: "subtitle", value: campus_config.naming.logo_subtitle)
     ), ..args)
 }
