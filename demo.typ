@@ -1,11 +1,7 @@
 #import "lib.typ" : heh_template, config, campus
 
 #show: heh_template.with(
-  campus_config_fn: campus.deco_config.with(
-    naming: campus.deco_naming_config().with(
-      logo_title: "Scientifique !"
-    )
-  ),
+  campus_config_fn: campus.deco_config,
   print_config_fn: config.default_print_config.with(monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"),
 )
 

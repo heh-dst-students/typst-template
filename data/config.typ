@@ -24,7 +24,7 @@
   monochromeimages: true,
 
   show_outline: true,
-  font: "Open Sans",
+  font: "Roboto",
   lang: "fr"
 ) = {
   return (

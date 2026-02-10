@@ -36,7 +36,7 @@
   
   set page("a4")
   set heading(numbering: "1.")
-  set text(font: (print_config.font), lang: print_config.lang)
+  set text(font: (print_config.font, "Open Sans"), lang: print_config.lang)
 
   set document(title: document_config.doc_description)
 
