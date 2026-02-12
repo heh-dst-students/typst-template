@@ -2,6 +2,7 @@
 #import "data/config.typ"
 #import "data/campus.typ"
 #import "utils/vsvg.typ" : vsvg_heh
+#import "box/boxes.typ": info, important, hint, silly
 
 #import "headers/headers.typ"
 #import "footers/footers.typ"
