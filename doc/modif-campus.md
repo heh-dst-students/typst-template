@@ -41,4 +41,3 @@ campus_config_fn: campus.dst_config.with(
 
 > **N.B**: Vous devez appelle les fonctions `_(naming|style|contact)_config` car elles retounent elles mêmes des versions modifiées de `default_..._config`
 
-

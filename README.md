@@ -71,7 +71,7 @@ Les données de configuration des pages / du document se trouvent dans `print_co
 ...
 #show: heh_template.with(
     ...
-    print_config_fn: #let default_print_config(
+    print_config_fn: default_print_config.with(
       monochrome: false // Si `true`, le document sera affiché uniquement en nuances de gris,
       monochromeimages: true // Si `true` et que le mode monochrome est activé, transforme automatiquement toutes les images du document en nuances de gris,
 
