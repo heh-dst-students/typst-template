@@ -32,12 +32,10 @@ Voici le schéma des configurations:
 ```typst
 ...
 campus_config_fn: campus.dst_config.with(
-    naming: campus.dst_naming_config().with(
+    naming: campus.dst_naming_config.with(
         full_name: "Département des technologies et sciences"
     )
 )
 ...
 ```
-
-> **N.B**: Vous devez appelle les fonctions `_(naming|style|contact)_config` car elles retounent elles mêmes des versions modifiées de `default_..._config`
 
