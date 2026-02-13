@@ -27,21 +27,26 @@
   stroke: none,
 )
 
+#let monochrome = state("monochrome", false)
+
 #let box_default(
   content,
   accent_color: rgb("#34356B"),
   title: "Default box",
   icon_path: "/assets/icons/information.vsvg",
-  ) = {
-    set text(fill: accent_color)
+  ) = context {
+    let true_accent = if monochrome.get() { black } else { accent_color }
+    let bg = if monochrome.get() { white } else { accent_color.lighten(90%) }
+    set text(fill: true_accent)
 
     box_default_styling(
-      fill: accent_color.lighten(90%),
+      fill: bg,
+      stroke: if monochrome.get() { 1pt + black } else { none }
     )[
       #grid_with_box_default_styling(
-        [#top_left_icon(icon_path, accent_color)],
+        [#top_left_icon(icon_path, true_accent)],
         [#title],
-        [#auto_resize_vertical_bar(accent_color)],
+        [#auto_resize_vertical_bar(true_accent)],
         [#content]
       )
     ]
