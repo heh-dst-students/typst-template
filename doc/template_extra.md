@@ -8,7 +8,7 @@ Boites d'information, avertissement, d'astuces, ... pour mettre en évidence du 
 
 ![Boites](assets/boxes.png)
 
-Pour les utilisez, importez les fonctions `info`, `warning` ou `hint` depuis la template.
+Pour les utilisez, importez les fonctions `info`, `important` ou `hint` depuis la template.
 
 ## Exemple
 
