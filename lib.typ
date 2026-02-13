@@ -12,7 +12,7 @@
   
   campus_config_fn: campus.dst_config,
 
-  header_style: headers.logo_title,
+  header_style: headers.logo_year_title,
   footer_style: footers.page_numbers,
 
   doc
