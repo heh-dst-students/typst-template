@@ -8,7 +8,7 @@ Ce template contient:
 
 ## Utilisation basique
 
-Pour utiliser le template, commencez par le télécharger dans le dossier de vos paquets locaux typst. Ici par exemple, sous `heh-template/1.0.0`
+Pour utiliser le template, commencez par le télécharger dans le dossier de vos paquets locaux typst. Ici par exemple, sous `heh-template/1.0.0`. Pour respecter la charte graphique HEH, la **police utilisée est Roboto**.
 
 Afin que le style sout appliqué en entier, utilisez une directive `show` globale au document:
 
