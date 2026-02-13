@@ -2,7 +2,7 @@
 #import "data/config.typ"
 #import "data/campus.typ"
 #import "utils/vsvg.typ" : vsvg_heh
-#import "box/boxes.typ": info, important, hint, silly
+#import "box/boxes.typ": info, important, hint, silly, monochrome
 
 #import "headers/headers.typ"
 #import "footers/footers.typ"
@@ -22,6 +22,8 @@
 ) = {
   let document_config = document_config_fn()
   let print_config = print_config_fn()
+  let campus_config_fn = campus_config_fn
+  monochrome.update(print_config.monochrome)
 
   if print_config.monochrome {
     campus_config_fn = campus_config_fn.with(
@@ -34,7 +36,6 @@
   }
 
   let campus_config = campus_config_fn()
-  
   set page("a4")
   set heading(numbering: "1.")
   set text(font: (print_config.font, "Open Sans"), lang: print_config.lang)
