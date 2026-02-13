@@ -13,9 +13,7 @@
   campus_config_fn: campus.dst_config,
 
   header_style: headers.logo_title,
-  header_extra_params: (),
   footer_style: footers.page_numbers,
-  footer_extra_params: (),
 
   doc
 ) = {
@@ -88,15 +86,13 @@
     header: context header_style(
       document_config: document_config,
       print_config: print_config,
-      campus_config: campus_config,
-      ..header_extra_params
+      campus_config: campus_config
     ),
     margin: (top: 125pt),
     footer: context footer_style(
       document_config: document_config,
       print_config: print_config,
-      campus_config: campus_config,
-      ..footer_extra_params
+      campus_config: campus_config
     )
   )
   

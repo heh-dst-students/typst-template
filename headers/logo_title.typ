@@ -5,7 +5,6 @@
   document_config: (),
   print_config: (),
   campus_config: (),
-  ..args
 ) = {
   columns(2)[
     #vsvg_heh(
