@@ -34,9 +34,18 @@
   accent_color: rgb("#34356B"),
   title: "Default box",
   icon_path: "/assets/icons/information.vsvg",
+  bg: auto
   ) = context {
     let true_accent = if monochrome.get() { black } else { accent_color }
-    let bg = if monochrome.get() { white } else { accent_color.lighten(90%) }
+    let bg = if monochrome.get() {
+      white
+    } else {
+      if bg == auto {
+        accent_color.lighten(90%)
+      } else {
+        bg
+      }
+    }
     set text(fill: true_accent)
 
     box_default_styling(
