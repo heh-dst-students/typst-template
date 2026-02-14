@@ -5,6 +5,7 @@ Template [typst](https://typst.app) pour les documents HEH de tout les départem
 Ce template contient:
 - La page de garde HEH
 - Des styles pour les titres, liens, en-têtes de pages, pieds de pages, ...
+- Des boites d'information, d'avertissement, ...
 
 ## Utilisation basique
 

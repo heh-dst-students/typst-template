@@ -28,3 +28,15 @@
       (key: "subtitle", value: campus_config.naming.logo_subtitle)
     ), ..args)
 }
+
+#let vsvg_with_one_accent_color(
+  source: "image.vsvg",
+  accent_color: rgb("#FFFFFF"),
+  ..args
+) = {
+  vsvg(
+    source: source,
+    params:  ((key: "color",  value: accent_color.to-hex()),),
+    ..args
+  )
+}

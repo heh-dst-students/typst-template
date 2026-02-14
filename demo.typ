@@ -1,4 +1,4 @@
-#import "lib.typ" : heh_template, config, campus
+#import "lib.typ" : heh_template, config, campus, info, silly, important, hint
 
 #show: heh_template.with(
   campus_config_fn: campus.deco_config,
@@ -6,10 +6,16 @@
 )
 
 = Hello there
+#lorem(24)
+
 
 == Level 2
+#lorem(24)
 
 === Level 3
+#lorem(24)
 
-Je suis le texte HEH #link("https://heh.be", "heh.be")
-
+#info[this is some content]
+#hint[C'est un indice]
+#important[C'est une info importante]
+#silly[Petite information silly]
