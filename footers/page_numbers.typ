@@ -4,7 +4,6 @@
   print_config: (),
   campus_config: (),
   show_total: true,
-  ..args
 ) = {
   align(right)[
     #counter(page).display(

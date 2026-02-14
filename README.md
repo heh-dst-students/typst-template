@@ -93,7 +93,7 @@ monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"
 
 ## Configuration des pieds de page et en-têtes
 
-Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le template propose plusieurs style et vous permet de définir les vôtres facilement en modifiant les paramètres `header_style` et `footer_style` de `heh_template`. Vous pouvez également y rajouter des paramètres supplémentaires avec `header_extra_params` et `footer_extra_params`
+Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le template propose plusieurs style et vous permet de définir les vôtres facilement en modifiant les paramètres `header_style` et `footer_style` de `heh_template`. Vous pouvez également y rajouter des paramètres supplémentaires en utilisant la fonction `.with()` sur la fonction du header / footer
 
 Vous pouvez consulter la documentation des headers dans [doc/headers.md](doc/headers.md) et des footers dans [doc/footers.md](doc/footers.md)
 
@@ -106,8 +106,9 @@ Vous pouvez consulter la documentation des headers dans [doc/headers.md](doc/hea
     ...
     header_style: headers.year_title, // Affiche l'année académique et le titre
     header_extra_params: (),
-    footer_style: footer.page_numbers, // Affiche les numéros de pages
-    footer_extra_params: (show_total: false) // Désactive l'action du nombre total de pages
+    footer_style: footer.page_numbers.with(
+      show_total: false
+    ), // Affiche les numéros de pages (sans le total)
 )
 ...
 
@@ -122,13 +123,11 @@ Vous pouvez consulter la documentation des headers dans [doc/headers.md](doc/hea
   print_config: (), // Fourni par défaut par heh_template
   campus_config: (), // Fourni par défaut par heh_template
   show_logo: false
-  ..args // A rajouter pour ignorer d'éventuels paramètres supplémentaires
 ) = {}
 
 #show: heh_template.with(
     ...
-    header_style: myheader,
-    header_extra_params: (show_logo: false)
+    header_style: myheader.with(show_logo: true),
 )
 ```
 
