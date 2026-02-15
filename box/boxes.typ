@@ -5,12 +5,6 @@
   inset: 14pt,
 )
 
-#let auto_resize_vertical_bar(accent_color) = rect(
-  width: 1pt,
-  fill: accent_color,
-  stroke: none,
-)
-
 #let grid_with_box_default_styling = grid.with(
   columns: (auto, 1fr),
   row-gutter: 14pt,
