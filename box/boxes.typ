@@ -5,6 +5,12 @@
   inset: 14pt,
 )
 
+#let auto_resize_vertical_bar(accent_color) = rect(
+  width: 1pt,
+  fill: accent_color,
+  stroke: none,
+)
+
 #let grid_with_box_default_styling = grid.with(
   columns: (auto, 1fr),
   row-gutter: 14pt,
@@ -20,12 +26,6 @@
     accent_color: accent_color
   )
 }
-
-#let auto_resize_vertical_bar(accent_color) = rect(
-  width: 1pt,
-  fill: accent_color,
-  stroke: none,
-)
 
 #let monochrome = state("monochrome", false)
 
@@ -55,8 +55,17 @@
       #grid_with_box_default_styling(
         [#top_left_icon(icon_path, true_accent)],
         [#title],
-        [#auto_resize_vertical_bar(true_accent)],
-        [#content]
+        grid.cell(
+          x: 0, y: 1, colspan: 2
+          )[
+            #align(left)[
+              #rect(
+                stroke: (left: 1pt + true_accent),
+                inset: (left: 20pt),
+                outset: (left: -8pt)
+              )[#content]
+            ]
+          ]
       )
     ]
 }
