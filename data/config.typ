@@ -1,8 +1,8 @@
 #let default_document_config(
   doc_title: "Titre",
   doc_description: "Description",
-  formation_name: "Bachelier en Informatique",
-  orientation_name: "Orientation développement",
+  formation_name: "Nom de la formation",
+  orientation_name: none,
   year: "2025 - 2026",
   authors: (
     ("Prenom Nom", "prenom.nom@std.heh.be"),
