@@ -11,24 +11,25 @@
   #let print_config = print_config_fn()
   #let campus_config = campus_config_fn()
 
-  #set page(margin: (left: 5%, top: 5%, right: 5%, bottom: 5%))
+  #set page(margin: (x: 45pt, y: 45pt))
   #set text(font: ("Roboto", "Inter"))
 
   #box(
     vsvg_heh(
-      source: "../assets/logos/heh-logo.vsvg", campus_config: campus_config, width: 40%)
+      source: "../assets/logos/heh-logo.vsvg", campus_config: campus_config, width: 200pt)
   )
   #h(1fr)
   Année académique #text(document_config.year, fill: campus_config.style.primary_color)
   
-  #line(length: 20%, stroke: 3pt + campus_config.style.primary_color)
+  #line(length: 100pt, stroke: 3pt + campus_config.style.primary_color)
   #[
     #set text(size: 8pt)
     #box(width: 40%,
       grid(
-        columns: (6%, 1fr),
+        columns: (13pt, 1fr),
         align: horizon,
         row-gutter: 5pt,
+        column-gutter: 5pt,
 
         vsvg_heh(
           source: "../assets/icons/address.vsvg", campus_config: campus_config), text(campus_config.contact.address_line1 + linebreak() + campus_config.contact.address_line2),
@@ -49,20 +50,22 @@
   #align(right)[
     #box(
       fill: campus_config.style.primary_color,
-      height: 20%,
       width: 75%,
-      inset: (left: 5%, top: 10%)
+      inset: (x: 20pt, y: 20pt)
     )[
         #align(left)[
         #set text(size: 15pt, fill: campus_config.style.onprimary_color)
 
-        #document_config.doc_title
+        #text(weight: "bold")[
+          #document_config.doc_title
+        ]
     
         #document_config.doc_description
 
-        #document_config.formation_name
-
-        #document_config.orientation_name
+        #text()[
+          #document_config.formation_name
+          #document_config.orientation_name
+        ]
       ]
     ]
   ]
