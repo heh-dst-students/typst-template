@@ -18,5 +18,5 @@
 <path d="M217.423 0C213.291 9.69279 209.624 19.6318 206.452 29.7891H141V0H217.423Z" fill="black" fill-opacity="0.1"/>
 <path d="M29.5 56H82.5V0H96.3857C87.8405 27.4293 82.8984 56.4471 82.1123 86.5H29.5L30.5 141H0V0H29.5V56Z" fill="black" fill-opacity="0.15"/>
 <path d="M82.5 112.998C83.0256 122.448 83.9624 131.787 85.293 141H82.5V112.998Z" fill="black" fill-opacity="0.15"/>
-<text fill="black" style="white-space: pre" xml:space="preserve" font-family="Inter" font-size="48" letter-spacing="-0.05em"><tspan x="420" y="140.455">{title}&#10;</tspan><tspan x="420" y="188.455">{subtitle}</tspan></text>
+<text fill="black" style="white-space: pre" xml:space="preserve" font-family="Roboto" font-size="48" letter-spacing="-0.05em"><tspan x="420" y="140.455">{title}&#10;</tspan><tspan x="420" y="188.455">{subtitle}</tspan></text>
 </svg>
