@@ -2,10 +2,12 @@
 #import "data/config.typ"
 #import "data/campus.typ"
 #import "utils/vsvg.typ" : vsvg_heh
-#import "box/boxes.typ": info, important, hint, silly, monochrome
-
+#import "components/box/boxes.typ": info, important, hint, silly, monochrome
+#import "components/tables/defaults.typ": tables_defaults
+#import "components/tables/double_table.typ": double_table
 #import "headers/headers.typ"
 #import "footers/footers.typ"
+#import "contexts/campus_config.typ": campus_config_context
 
 #let heh_template(
   document_config_fn: config.default_document_config,
@@ -34,6 +36,7 @@
   }
 
   let campus_config = campus_config_fn()
+  campus_config_context.update(campus_config)
   set page("a4")
   set heading(numbering: "1.")
   set text(font: (print_config.font, "Open Sans"), lang: print_config.lang)
@@ -83,6 +86,8 @@
 
   show link: set text(fill: decorations_color.lighten(15%)) if not print_config.monochrome
   show link: it => if print_config.monochrome { underline(it) } else { it }
+
+  show: tables_defaults(campus_config, doc)
 
   set page(
     header: context header_style(
