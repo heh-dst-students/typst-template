@@ -24,7 +24,6 @@
     }
   )
 
-  #let origin = true
   #show table.cell: it => {
     if(it.y == 0) {
       set text(white, weight: "bold")
