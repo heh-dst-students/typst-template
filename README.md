@@ -132,6 +132,10 @@ Vous pouvez consulter la documentation des headers dans [doc/headers.md](doc/hea
 )
 ```
 
+## Documentation annexe
+
+Pour savoir comment faire ou utiliser des tableaux a double entrées ou savoir faire des tableaux custom, lisez [doc/tables.md](doc/tables.md)
+
 ## Modifications avancées
 
 Pour savoir comment modifier les configurations d'un campus, lisez [doc/modif-campus.md](doc/modif-campus.md)
