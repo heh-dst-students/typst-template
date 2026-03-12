@@ -13,12 +13,54 @@
 = Hello there
 #lorem(24)
 
+== Listes a puces
+Ceci est un exemple d'utilisation d'une liste a puce avec le template HEH Typst.
 
-== Level 2
-#lorem(24)
+- Une Pomme
+- Deux Poires
+- Trois Fraises
 
-=== Level 3
-#lorem(24)
+=== Listes numérotées
+C'est un exemple d'une liste numérotée faite avec le template HEH Typst.
+
++ Faire les courses
++ Préparer le repas
++ Faire la vaiselle
+
+=== Liste de termes
+Un exmple de liste de termes.
+
+/ myrmécologie: Étude scientifique des fourmis.
+/ gastre: Partie postérieure, plus ou moins globuleuse, formée de 4 anneaux, de l'abdomen des fourmis.
+/ trophallaxie: Échange mutuel de nourriture entre membres d'une même colonie chez les insectes sociaux.
+
+#pagebreak()
+
+=== Exemple avec une image
+Test de spacing avec une image au millieu du texte... #lorem(20)
+
+
+#figure(
+  image("/assets/logos/wbe.svg"),
+  caption: "c'est une image"
+)
+
+Texte qui s'affiche apres l'image... #lorem(24)
+
+=== Citations
+Un exemple de citation
+
+#quote(
+  attribution: "Robert C. Martin, Clean Code: A Handbook of Agile Software  Craftmanship",
+  block: true,
+  [FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL. THEY SHOULD DO IT ONLY.]
+)
+
+Fin de citation...
+
+
+=== Encadrements
+Encadrements customs
 
 #info[this is some content]
 #hint[C'est un indice]
