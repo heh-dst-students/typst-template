@@ -80,15 +80,9 @@
   show heading.where(level: 1): set text(fill: decorations_color) if not print_config.monochrome
   show heading.where(level: 2): set text(fill: decorations_color.lighten(5%)) if not print_config.monochrome
   show heading.where(level: 3): set text(fill: decorations_color.lighten(10%)) if not print_config.monochrome
-
-  let small_spacing = 10pt
-  let medium_spacing = 16pt
-  let great_spacing = 24pt
-  set par(spacing: great_spacing)
-  set terms(spacing: medium_spacing)
-  set list(spacing: small_spacing)
-  set enum(spacing: small_spacing)
-  show heading: set text(top-edge: medium_spacing)
+  
+  set par(spacing: 2em, leading: 0.8em)
+  show heading: set text(top-edge: 1.6em, bottom-edge: "descender")
 
   show link: set text(fill: decorations_color.lighten(15%)) if not print_config.monochrome
   show link: it => if print_config.monochrome { underline(it) } else { it }
