@@ -15,12 +15,10 @@
 #let top_left_icon(
   icon_path,
   accent_color,
-) = {
-  vsvg_with_one_accent_color(
-    source: icon_path,
-    accent_color: accent_color,
-  )
-}
+) = vsvg_with_one_accent_color(
+  source: icon_path,
+  accent_color: accent_color,
+)
 
 #let monochrome = state("monochrome", false)
 
@@ -32,6 +30,7 @@
   bg: auto,
 ) = context {
   let true_accent = if monochrome.get() { black } else { accent_color }
+
   let bg = if monochrome.get() {
     white
   } else {
@@ -41,30 +40,28 @@
       bg
     }
   }
+
   set text(fill: true_accent)
 
   box_default_styling(
     fill: bg,
     stroke: if monochrome.get() { 1pt + black } else { none },
-  )[
-    #grid_with_box_default_styling(
-      [#top_left_icon(icon_path, true_accent)],
-      [#title],
+    grid_with_box_default_styling(
+      top_left_icon(icon_path, true_accent),
+      title,
       grid.cell(
         x: 0,
         y: 1,
         colspan: 2,
-      )[
-        #align(left)[
-          #rect(
-            stroke: (left: 1pt + true_accent),
-            inset: (left: 20pt),
-            outset: (left: -6.5pt),
-          )[#content]
-        ]
-      ],
-    )
-  ]
+        align(left, rect(
+          stroke: (left: 1pt + true_accent),
+          inset: (left: 20pt),
+          outset: (left: -6.5pt),
+          content,
+        )),
+      ),
+    ),
+  )
 }
 
 #let info = box_default.with(

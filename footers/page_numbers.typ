@@ -5,11 +5,12 @@
   campus_config: (),
   show_total: true,
 ) = {
-  align(right)[
-    #counter(page).display(
+  align(
+    right,
+    counter(page).display(
       "1/1",
-      both: show_total
-    )
-  ]
+      both: show_total,
+    ),
+  )
 }
 

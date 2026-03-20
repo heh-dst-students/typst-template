@@ -6,7 +6,7 @@
   (
     decorations_color: decorations_color,
     primary_color: primary_color,
-    onprimary_color: onprimary_color
+    onprimary_color: onprimary_color,
   )
 }
 
@@ -21,38 +21,36 @@
     address_line1: address_line1,
     address_line2: address_line2,
     phone_nr_pretty: phone_nr_pretty,
-    phone_nr_short: if phone_nr_short == auto { 
+    phone_nr_short: if phone_nr_short == auto {
       phone_nr_pretty.replace("(0)", "").replace(" ", "")
     } else { phone_nr_short },
-    mail: mail
+    mail: mail,
   )
 }
 
 #let default_naming_config(
   short_name: "DST",
   full_name: "Département des sciences et technologies",
-  
   logo_title: "Sciences",
-  logo_subtitle: "et technologies"
+  logo_subtitle: "et technologies",
 ) = {
   (
     short_name: short_name,
     full_name: full_name,
-
     logo_title: logo_title,
-    logo_subtitle: logo_subtitle
+    logo_subtitle: logo_subtitle,
   )
 }
 
 #let default_config(
   naming: default_naming_config,
   contact: default_contact_config,
-  style: default_style_config
+  style: default_style_config,
 ) = {
   (
     naming: naming(),
     contact: contact(),
-    style: style()
+    style: style(),
   )
 }
 
@@ -61,13 +59,13 @@
 #let dst_contact_config = default_contact_config
 #let dst_style_config = default_style_config.with(
   primary_color: rgb("#E41513"),
-  onprimary_color: rgb("#FFFFFF")
+  onprimary_color: rgb("#FFFFFF"),
 )
 
 #let dst_config = default_config.with(
   naming: dst_naming_config,
   contact: dst_contact_config,
-  style: dst_style_config
+  style: dst_style_config,
 )
 
 #let dss_ms_naming_config = default_naming_config.with(
@@ -75,7 +73,7 @@
   full_name: "Département des sciences sociales (Mons)",
 
   logo_title: "Sciences",
-  logo_subtitle: "sociales"
+  logo_subtitle: "sociales",
 )
 
 
@@ -83,7 +81,7 @@
   address_line1: "Avenue Victor Maistriau 13",
   address_line2: "B-7000 Mons",
   phone_nr_pretty: "+32 (0)65 39 48 90",
-  mail: "social-mons@heh.be"
+  mail: "social-mons@heh.be",
 )
 
 #let dss_style_config = default_style_config.with(
@@ -94,7 +92,7 @@
 #let dss_ms_config = default_config.with(
   naming: dss_ms_naming_config,
   contact: dss_ms_contact_config,
-  style: dss_style_config
+  style: dss_style_config,
 )
 
 #let dss_to_naming_config = default_naming_config.with(
@@ -113,7 +111,7 @@
 #let dss_to_config = default_config.with(
   naming: dss_to_naming_config,
   contact: dss_to_contact_config,
-  style: dss_style_config
+  style: dss_style_config,
 )
 
 #let dsee_ms_naming_config = default_naming_config.with(
@@ -121,13 +119,13 @@
   full_name: "Département des sciences de l'éducation et de l'enseignement (Mons)",
 
   logo_title: "Sciences de l'éducation",
-  logo_subtitle: "et Enseignement"
+  logo_subtitle: "et Enseignement",
 )
 
 #let dsee_ms_contact_config = default_contact_config.with(
   address_line1: "Boulevard Albert-Elisabeth 2",
   address_line2: "B-7000 Mons",
-    
+
   phone_nr_pretty: "+32 (0)65 33 76 66",
   mail: "peda-mons@heh.be",
 )
@@ -140,7 +138,7 @@
 #let dsee_ms_config = default_config.with(
   naming: dsee_ms_naming_config,
   contact: dsee_ms_contact_config,
-  style: dsee_style_config
+  style: dsee_style_config,
 )
 
 #let dsee_to_naming_config = default_naming_config.with(
@@ -159,7 +157,7 @@
 #let dsee_to_config = default_config.with(
   naming: dsee_to_naming_config,
   contact: dsee_to_contact_config,
-  style: dsee_style_config
+  style: dsee_style_config,
 )
 
 #let deco_naming_config = default_naming_config.with(
@@ -175,7 +173,7 @@
   address_line2: "B-7500 Tournai",
 
   phone_nr_pretty: "+32 (0)69 22 67 72",
-  mail: "eco-tournai@heh.be"
+  mail: "eco-tournai@heh.be",
 )
 
 #let deco_style_config = default_style_config.with(
@@ -186,6 +184,6 @@
 #let deco_config = default_config.with(
   naming: deco_naming_config,
   contact: deco_contact_config,
-  style: deco_style_config
+  style: deco_style_config,
 )
 
