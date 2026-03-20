@@ -2,7 +2,7 @@
   doc_title: "Titre",
   doc_description: "Description",
   formation_name: "Nom de la formation",
-  orientation_name: none,
+  orientation_name: "Orientation",
   year: "2025 - 2026",
   authors: (
     ("Prenom Nom", "prenom.nom@std.heh.be"),
@@ -15,24 +15,23 @@
     formation_name: formation_name,
     orientation_name: orientation_name,
     year: year,
-    authors: authors
+    authors: authors,
   )
 }
 
 #let default_print_config(
   monochrome: false,
   monochromeimages: true,
-
   show_outline: true,
   font: "Roboto",
-  lang: "fr"
+  lang: "fr",
 ) = {
   return (
     monochrome: monochrome,
     monochromeimages: monochromeimages,
     show_outline: show_outline,
     font: font,
-    lang: lang
+    lang: lang,
   )
 }
 

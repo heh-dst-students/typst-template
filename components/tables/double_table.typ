@@ -1,7 +1,7 @@
-#import "../../contexts/campus_config.typ": campus_config_context
+#import "/contexts/campus_config.typ": campus_config_context
 
 #let double_table(
-  ..args
+  ..args,
 ) = context {
   let primary_color = campus_config_context.get().style.primary_color
   show table.cell: it => {
@@ -13,11 +13,13 @@
     }
   }
 
-  table(..args, fill: (x, y) => {
-    if (y == 0 or x == 0) {
-      primary_color.darken(40%)
-    } else {
-      primary_color.transparentize(90%)
+  table(
+    ..args, fill: (x, y) => {
+      if (y == 0 or x == 0) {
+        primary_color.darken(40%)
+      } else {
+        primary_color.transparentize(90%)
+      }
     }
-  })
+  )
 }

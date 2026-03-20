@@ -6,6 +6,8 @@ alias w := watch-demo
 alias bm := build-monochrome
 alias wm := watch-monochrome
 
+alias fmt := format
+
 # Créer le PDF de démonstration
 build-demo:
     typst compile {{ demo_file }}
@@ -22,3 +24,6 @@ build-monochrome:
 watch-monochrome:
     typst watch --input monochrome=true {{ demo_file }}
 
+# Formatte le code avec typstyle
+format:
+    typstyle -i .

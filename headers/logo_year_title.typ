@@ -1,4 +1,4 @@
-#import "/utils/vsvg.typ" : vsvg_heh
+#import "/utils/vsvg.typ": vsvg_heh
 
 // Affiche le logo à gauche et l'année académique et le titre à droite
 #let logo_year_title(
@@ -6,27 +6,27 @@
   print_config: (),
   campus_config: (),
   show_year: true,
-  show_title: true
+  show_title: true,
 ) = {
-  columns(2)[
-    #vsvg_heh(
+  columns(2, {
+    vsvg_heh(
       source: "/assets/logos/heh-logo.vsvg",
       campus_config: campus_config,
       width: 200pt,
     )
 
-    #colbreak()
-    #align(right)[
-      #if show_year [
+    colbreak()
+    align(right, {
+      if show_year [
         Année académique #text(document_config.year, fill: campus_config.style.primary_color)
       ]
-      #if show_year and show_title {
+      if show_year and show_title {
         linebreak()
       }
-      #if show_title [
-        #document_config.doc_title
-      ]
-    ]
-  ]
+      if show_title {
+        document_config.doc_title
+      }
+    })
+  })
 }
 

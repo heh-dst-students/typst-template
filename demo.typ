@@ -1,13 +1,14 @@
-#import "lib.typ" : *
+#import "lib.typ": *
 
 #show: heh_template.with(
   campus_config_fn: campus.dst_config,
-  print_config_fn: config.default_print_config.with(monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"),
+  print_config_fn: config.default_print_config.with(
+    monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true",
+  ),
   document_config_fn: config.default_document_config.with(
     doc_title: "Template HEH avec Typst",
     doc_description: "Template de document modulaire et universel au campus de la HEH.",
-    formation_name: none,
-  )
+  ),
 )
 
 = Hello there
@@ -42,7 +43,7 @@ Test de spacing avec une image au millieu du texte... #lorem(20)
 
 #figure(
   image("/assets/logos/wbe.svg"),
-  caption: "c'est une image"
+  caption: "c'est une image",
 )
 
 Texte qui s'affiche apres l'image... #lorem(24)
@@ -53,7 +54,7 @@ Un exemple de citation
 #quote(
   attribution: "Robert C. Martin, Clean Code: A Handbook of Agile Software  Craftmanship",
   block: true,
-  [FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL. THEY SHOULD DO IT ONLY.]
+  [FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL. THEY SHOULD DO IT ONLY.],
 )
 
 Fin de citation...
@@ -86,9 +87,7 @@ Par exemple:
 ```
 #table(
   columns: (50pt, 1fr, 1fr),
-  table.header(
-    [ID], [Nom], [Email]
-  ),
+  table.header([ID], [Nom], [Email]),
   [1], [John Doe], [john.doe\@std.heh.be],
   [2], [John Doe], [john.doe\@std.heh.be],
   [3], [John Doe], [john.doe\@std.heh.be],
@@ -109,9 +108,15 @@ exemple:
 
 #double_table(
   columns: (50pt, 1fr, 1fr),
-  [], [A], [not A],
-  [B], [O], [X],
-  [not B], [X], [X]
+  [],
+  [A],
+  [not A],
+  [B],
+  [O],
+  [X],
+  [not B],
+  [X],
+  [X],
 )
 
 #pagebreak()
@@ -168,13 +173,12 @@ Et son utilisation en pratique:
 Ce qui donne:
 
 #let custom_table(
-  ..args
+  ..args,
 ) = context {
+  let primary_color = campus_config_context.get().style.primary_color
 
-    let primary_color = campus_config_context.get().style.primary_color
-
-    show table.cell: it => {
-    if(it.y <= 1 or it.x == 0) {
+  show table.cell: it => {
+    if (it.y <= 1 or it.x == 0) {
       set text(white, weight: "bold")
       it
     } else {
@@ -182,13 +186,13 @@ Ce qui donne:
     }
   }
 
-  table(..args,     fill: (x, y) => {
-    if (y <= 1 or x == 0) {
-      primary_color.darken(40%)
-    } else {
-      primary_color.transparentize(90%)
-    }
-  })
+  table(..args, fill: (x, y) => {
+      if (y <= 1 or x == 0) {
+        primary_color.darken(40%)
+      } else {
+        primary_color.transparentize(90%)
+      }
+    })
 }
 
 #custom_table(
@@ -197,9 +201,10 @@ Ce qui donne:
   table.cell(colspan: 2)[2025],
   table.cell(colspan: 2)[2026],
   table.cell(colspan: 2)[Quad 1],
-  [Quad 2], [Quad 3],
+  [Quad 2],
+  [Quad 3],
   [Rattrapage?],
   table.cell(colspan: 2)[Non],
   [Non],
-  [Oui]
+  [Oui],
 )
