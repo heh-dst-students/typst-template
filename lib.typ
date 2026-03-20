@@ -1,4 +1,6 @@
 #import "pages/cover.typ": heh_cover_page
+#import "pages/outline.typ": heh_outline_page
+#import "pages/blank_page.typ": heh_blank_page
 #import "data/config.typ"
 #import "data/campus.typ"
 #import "utils/vsvg.typ": vsvg_heh
@@ -111,6 +113,15 @@
       campus_config: campus_config,
     ),
     margin: (top: 125pt),
+  )
+
+  show: tables_defaults.with(campus_config)
+
+  heh_outline_page(print_config_fn: print_config_fn)
+
+  heh_blank_page(print_config_fn: print_config_fn)
+
+  set page(
     footer: context footer_style(
       document_config: document_config,
       print_config: print_config,
@@ -119,11 +130,6 @@
   )
 
   counter(page).update(1)
-
-  if print_config.show_outline {
-    outline(title: "Table des matières")
-    pagebreak()
-  }
 
   doc
 }
