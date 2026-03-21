@@ -41,3 +41,7 @@ Les règles suivantes sont **complémentaires** au style par défaut appliqué p
 
 - Les commentaires **doivent** être placés au dessus du code qu'ils concernent
 
+## Fichiers
+
+- Les fichiers **doivent** être terminés par une ligne vide
+
