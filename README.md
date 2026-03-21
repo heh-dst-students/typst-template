@@ -73,12 +73,13 @@ Les données de configuration des pages / du document se trouvent dans `print_co
 #show: heh_template.with(
     ...
     print_config_fn: default_print_config.with(
-      monochrome: false // Si `true`, le document sera affiché uniquement en nuances de gris,
-      monochromeimages: true // Si `true` et que le mode monochrome est activé, transforme automatiquement toutes les images du document en nuances de gris,
+      monochrome: false, // Si `true`, le document sera affiché uniquement en nuances de gris,
+      monochromeimages: true, // Si `true` et que le mode monochrome est activé, transforme automatiquement toutes les images du document en nuances de gris,
 
-      show_outline: true // Affiche ou non la table des matières,
-      font: "Roboto" // Police d'écriture du document,
-      lang: "fr" // Langage du document
+      outlines: ((target: heading, title: "Table des matières")), // Une liste de dictionnaires avec 'target' comme sélecteur et 'title' pour le titre de la table.
+
+      font: "Roboto", // Police d'écriture du document,
+      lang: "fr", // Langage du document
     )
 )
 ...
@@ -91,6 +92,20 @@ Pour définir le paramètre `monochrome` plus simplement, vous pouvez utilise `s
 monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"
 ...
 ```
+
+Pour désactiver la table des matières, vous pouvez mettre la valeur de `outline` a `none` ou `()`. Si il n'y a aucunes occurances du sélecteur de l'une de vos table des matières, elle ne s'affichera pas.
+```typst
+outlines: none, // désactive la table des matières
+```
+
+Vous pouvez également importer certaines tables des matières préfaites pour vous depuis la variable `config.outlines` afin de gagner du temps et de la lisiblité sur votre document.
+- `config.outlines.headings`
+- `config.outlines.tables`
+- `config.outlines.images`
+```typst
+outlines: (config.outlines.headings, )
+```
+
 
 ## Configuration des pieds de page et en-têtes
 
