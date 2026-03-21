@@ -2,7 +2,7 @@
   campus_config,
   doc,
 ) = {
-  show table: it => box.with(radius: 5pt, clip: true, it)
+  show table: it => box(radius: 5pt, clip: true, it)
 
   set table(
     stroke: none,
