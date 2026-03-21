@@ -22,35 +22,6 @@ Les règles suivantes sont **complémentaires** au style par défaut appliqué p
 
 ## Blocs
 
- L'accolade ouvrante **peut se situer sur la même ligne**
-- L'accolade fermante doit se trouver sur **sa propre ligne**
-- Les fonctions et les blocs de contenu ne contenant qu'une ligne ne **doivent pas utiliser d'accolades**
-- Si un bloc est quasiment composé exclusivement de code et **d'un peu de markup**, il vaut mieux utiliser **un bloc de code**
-
-## Fonctions et appels de fonction
-
-# Règles de formatage - template HEH Typst
-
-## Règles de base
-
-### Indentation
-
-- Le code est indenté avec une longeur de **2 espaces**
-- Les variables et noms de fonctions utilisent la convention **snake_case**
-- Les blocs (`()`, `{}`, `[]`, ...) doivent être indentés selon la hiérarchie du document
-
-### Longeur des lignes
-
-- Maximum de 100 charactères par ligne
-
-### Espacement
-
-- Tout les variables, opérateurs, et blocs sont **entourés d'un espace**. Par exemple, on écrira `200px + 200px` au lieu de `200px+200px`.
-- Les virgules ne sont **pas précédées d'un espace**
-- Les virgules qui ne constituent **pas la fin de la ligne sont succédées par un espace**
-
-## Blocs
-
 - L'accolade ouvrante **peut se situer sur la même ligne**
 - L'accolade fermante doit se trouver sur **sa propre ligne**
 - Les fonctions et les blocs de contenu ne contenant qu'une ligne ne **doivent pas utiliser d'accolades**
