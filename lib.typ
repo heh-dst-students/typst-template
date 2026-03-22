@@ -115,8 +115,6 @@
     margin: (top: 125pt),
   )
 
-  show: tables_defaults.with(campus_config)
-
   heh_outline_page(print_config_fn: print_config_fn)
 
   heh_blank_page(print_config_fn: print_config_fn)
