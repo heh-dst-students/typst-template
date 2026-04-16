@@ -20,6 +20,5 @@ Premièrement, faites attention à bien respecter notre **convention de commit**
 
 Nous vous demandons aussi de formatter le code avec `just fmt` et de suivre les pratiques de style indiquées dans [STYLE.md](STYLE.md)
 
-Bien sûr, si vous avez une hésitation sur comment implémenter une fonctionnalité / formatter votre code / ...
-
+Bien sûr, si vous avez une hésitation sur comment implémenter une fonctionnalité / formatter votre code / ..., n'hésitez pas à soumettre la pull request et poser les questions nécéssaires, le but n'étant pas non plus de freiner les contributions.
 
