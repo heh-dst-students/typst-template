@@ -19,10 +19,16 @@
   )
 }
 
+#let outlines = (
+  headings: (target: heading, title: "Table des matières"),
+  tables: (target: figure.where(kind: table), title: "Table des tableaux"),
+  images: (target: figure.where(kind: image), title: "Table des images")
+)
+
 #let default_outlines_values = (
-  (target: heading, title: "Table des matières"),
-  (target: figure.where(kind: table), title: "Table des tableaux"),
-  (target: figure.where(kind: image), title: "Table des images"),
+  outlines.headings,
+  outlines.tables,
+  outlines.images
 )
 
 #let default_print_config(
