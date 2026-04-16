@@ -19,19 +19,33 @@
   )
 }
 
+#let outlines = (
+  headings: (target: heading, title: "Table des matières"),
+  tables: (target: figure.where(kind: table), title: "Table des tableaux"),
+  images: (target: figure.where(kind: image), title: "Table des images")
+)
+
+#let default_outlines_values = (
+  outlines.headings,
+  outlines.tables,
+  outlines.images
+)
+
 #let default_print_config(
   monochrome: false,
   monochromeimages: true,
-  show_outline: true,
+  outlines: default_outlines_values,
+  show_blank_page: false,
   font: "Roboto",
   lang: "fr",
 ) = {
   return (
     monochrome: monochrome,
     monochromeimages: monochromeimages,
-    show_outline: show_outline,
+    outlines: outlines,
     font: font,
     lang: lang,
+    show_blank_page: show_blank_page,
   )
 }
 
