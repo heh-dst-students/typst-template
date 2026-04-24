@@ -103,6 +103,8 @@
     fill: decorations_color.lighten(15%),
   ) if not print_config.monochrome
   show link: it => if print_config.monochrome { underline(it) } else { it }
+  
+  set raw(theme: none) if print_config.monochrome
 
   show: tables_defaults.with(campus_config)
 
