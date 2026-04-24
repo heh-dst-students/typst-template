@@ -9,6 +9,9 @@
     authors: (
       ("Contributeurs de HEH-Template", ""),
     )
+  ),
+  print_config_fn: config.default_print_config.with(
+    monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"
   )
 )
 
