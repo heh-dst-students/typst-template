@@ -1,22 +1,22 @@
-demo_file := "demo.typ"
+demo_file := "manuel.typ"
 
-alias b := build-demo
-alias w := watch-demo
+alias b := build-manuel
+alias w := watch-manuel
 
 alias bm := build-monochrome
 alias wm := watch-monochrome
 
 alias fmt := format
 
-# Créer le PDF de démonstration
-build-demo:
+# Créer le PDF de démonstration (manuel)
+build-manuel:
     typst compile {{ demo_file }}
 
-# Compile le pdf de démonstration à chaque changement
-watch-demo:
+# Compile le pdf de démonstration (manuel) à chaque changement
+watch-manuel:
     typst watch {{ demo_file }}
 
-# Créer le PDF de démonstration en monochrome
+# Créer le manuel PDF en monochrome
 build-monochrome:
     typst compile --input monochrome=true {{ demo_file }}
 
