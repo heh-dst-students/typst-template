@@ -15,7 +15,7 @@
   set page(margin: (x: 45pt, y: 45pt))
   set text(font: ("Roboto", "Inter"))
 
-  box(heh_logo(campus_config))
+  box(heh_logo(campus_config, width: 200pt))
   h(1fr)
   [Année académique #text(document_config.year, fill: campus_config.style.primary_color)]
 

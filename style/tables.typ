@@ -1,4 +1,4 @@
-#let tables_defaults(
+#let heh_table_defaults(
   campus_config,
   doc,
 ) = {
