@@ -1,3 +1,5 @@
+#import "/utils/states.typ": heh_config
+
 #let show_if_has_match(
   selector: heading,
   to_show: outline,
@@ -36,17 +38,22 @@
 
 #let campus_branded_svg(
   source,
-  campus_config,
   ..args,
-) = template_svg(
-  source,
-  params: (
-    (key: "color", value: campus_config.style.primary_color.to-hex()),
-    (key: "title", value: campus_config.naming.logo_title),
-    (key: "subtitle", value: campus_config.naming.logo_subtitle),
-  ),
+) = context {
+  let config = heh_config.get()
+  template_svg(
+    source,
+    params: (
+      (key: "color", value: config.campus.style.primary_color.to-hex()),
+      (key: "title", value: config.campus.naming.logo_title),
+      (key: "subtitle", value: config.campus.naming.logo_subtitle),
+    ),
+    ..args,
+  )
+}
+
+#let heh_logo(..args) = campus_branded_svg(
+  "/assets/logos/heh-logo.vsvg",
   ..args,
 )
-
-#let heh_logo(..args) = campus_branded_svg("/assets/logos/heh-logo.vsvg", ..args)
 

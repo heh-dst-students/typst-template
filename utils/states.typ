@@ -1,6 +1,10 @@
-// Contient la configuration du campus
-#let campus_config_context = state(
-  "campus_config",
-  none,
+// Contient la configuration du document
+#let heh_config = state(
+  "heh_config",
+  (
+    document: (),
+    print: (),
+    campus: (),
+  ),
 )
 

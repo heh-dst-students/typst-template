@@ -1,25 +1,16 @@
 #import "/utils/utils.typ": campus_branded_svg, heh_logo
+#import "/utils/states.typ": heh_config
 
-#import "/data/config.typ": default_document_config, default_print_config
-#import "/data/campus.typ"
-
-#let heh_cover_page(
-  document_config_fn: default_document_config,
-  print_config_fn: default_print_config,
-  campus_config_fn: campus.dst_config,
-) = {
-  let document_config = document_config_fn()
-  let print_config = print_config_fn()
-  let campus_config = campus_config_fn()
-
+#let heh_cover_page() = context {
+  let config = heh_config.get()
   set page(margin: (x: 45pt, y: 45pt))
   set text(font: ("Roboto", "Inter"))
 
-  box(heh_logo(campus_config, width: 200pt))
+  box(heh_logo(width: 200pt))
   h(1fr)
-  [Année académique #text(document_config.year, fill: campus_config.style.primary_color)]
+  [Année académique #text(config.document.year, fill: config.campus.style.primary_color)]
 
-  line(length: 100pt, stroke: 3pt + campus_config.style.primary_color)
+  line(length: 100pt, stroke: 3pt + config.campus.style.primary_color)
 
   {
     set text(size: 8pt)
@@ -34,39 +25,36 @@
 
           campus_branded_svg(
             "/assets/icons/address.vsvg",
-            campus_config,
           ),
           text(
-            campus_config.contact.address_line1
+            config.campus.contact.address_line1
               + linebreak()
-              + campus_config.contact.address_line2,
+              + config.campus.contact.address_line2,
           ),
 
           campus_branded_svg(
             "/assets/icons/phone.vsvg",
-            campus_config,
           ),
           link(
-            "tel:" + campus_config.contact.phone_nr_short,
-            campus_config.contact.phone_nr_pretty,
+            "tel:" + config.campus.contact.phone_nr_short,
+            config.campus.contact.phone_nr_pretty,
           ),
 
           campus_branded_svg(
             "/assets/icons/mail.vsvg",
-            campus_config,
           ),
           link(
-            "mailto:" + campus_config.contact.mail,
-            campus_config.contact.mail,
+            "mailto:" + config.campus.contact.mail,
+            config.campus.contact.mail,
           ),
         )
         box(
-          fill: campus_config.style.primary_color,
+          fill: config.campus.style.primary_color,
           inset: 5pt,
           text(
             "WWW.HEH.BE",
             weight: "bold",
-            fill: campus_config.style.onprimary_color,
+            fill: config.campus.style.onprimary_color,
           ),
         )
       },
@@ -76,20 +64,20 @@
   v(1fr)
 
   align(right, box(
-    fill: campus_config.style.primary_color,
+    fill: config.campus.style.primary_color,
     width: 75%,
     inset: (x: 20pt, y: 20pt),
     align(left)[
-      #set text(size: 15pt, fill: campus_config.style.onprimary_color)
+      #set text(size: 15pt, fill: config.campus.style.onprimary_color)
 
       #text(weight: "bold")[
-        #document_config.doc_title
+        #config.document.doc_title
       ]
 
-      #document_config.doc_description
+      #config.document.doc_description
 
-      #document_config.formation_name \
-      #document_config.orientation_name
+      #config.document.formation_name \
+      #config.document.orientation_name
     ],
   ))
 
@@ -99,7 +87,8 @@
     columns: (1fr, auto, auto),
     gutter: 24pt,
     text(
-      document_config
+      config
+        .document
         .authors
         .map(it => (
           it.at(0) + linebreak() + link("mailto:" + it.at(1), it.at(1))

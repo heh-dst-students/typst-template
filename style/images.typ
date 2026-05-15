@@ -1,8 +1,11 @@
-#let heh_images_defaults(document_config, print_config, campus_config, doc) = {
+#import "/utils/states.typ": heh_config
+
+#let heh_images_defaults(doc) = context {
+  let config = heh_config.get()
   show image: it => {
     if (
-      print_config.monochromeimages
-        and print_config.monochrome
+      config.print.monochromeimages
+        and config.print.monochrome
         and type(it.source) == str
     ) {
       import "@preview/grayness:0.5.0": plg

@@ -1,4 +1,6 @@
-#import "./lib.typ" : heh_template, config, hint, double_table, campus_config_context, info, important
+#import "./lib.typ": (
+  config, double_table, heh_config, heh_template, hint, important, info,
+)
 
 #show: heh_template.with(
   document_config_fn: config.default_document_config.with(
@@ -8,11 +10,11 @@
     orientation_name: none,
     authors: (
       ("Contributeurs de HEH-Template", ""),
-    )
+    ),
   ),
   print_config_fn: config.default_print_config.with(
-    monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true"
-  )
+    monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true",
+  ),
 )
 
 = Utilisation basique
@@ -150,13 +152,14 @@ Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le temp
 == Définition d'une fonction personalisée (headers / footers)
 
 ```typst
+#import "@preview/heh-template:1.0.0": ..., heh_config
 ...
 #let myheader(
-  document_config: (), // Fourni par défaut par heh_template
-  print_config: (), // Fourni par défaut par heh_template
-  campus_config: (), // Fourni par défaut par heh_template
   show_logo: false
-) = {}
+) = context {
+  // Accès à config.campus, config.document et config.print
+  let config = heh_config.get()
+}
 
 #show: heh_template.with(
     ...
@@ -293,9 +296,7 @@ Par exemple:
 
 #table(
   columns: (50pt, 1fr, 1fr),
-  table.header(
-    [ID], [Nom], [Email]
-  ),
+  table.header([ID], [Nom], [Email]),
   [1], [John Doe], [john.doe\@std.heh.be],
   [2], [John Doe], [john.doe\@std.heh.be],
   [3], [John Doe], [john.doe\@std.heh.be],
@@ -316,23 +317,29 @@ Si vous voulez utiliser des tableaux a double entrée, vous pouvez importer dire
 
 #double_table(
   columns: (50pt, 1fr, 1fr),
-  [], [A], [not A],
-  [B], [O], [X],
-  [not B], [X], [X]
+  [],
+  [A],
+  [not A],
+  [B],
+  [O],
+  [X],
+  [not B],
+  [X],
+  [X],
 )
 
 == Tableaux personalisés
 
 Pour l'instant, le template ne propose que des tableaux à simple et à double entrée. Si vous souhaitez pousser la modification des tableaux, vous pouvez créer vos propres fonctions:
 
-Vous pouvez utiliser le `state` `campus_config_context` qui contient les couleurs du campus défini.
+Vous pouvez utiliser le `state` `heh_config` qui contient l'ensemble de la configuration du document
 
 ```typ
 #let custom_table(
   ..args
 ) = context {
 
-    let primary_color = campus_config_context.get().style.primary_color
+    let primary_color = heh_config.get().campus.style.primary_color
 
     show table.cell: it => {
     if(it.y <= 1 or it.x == 0) {
@@ -356,29 +363,28 @@ Vous pouvez utiliser le `state` `campus_config_context` qui contient les couleur
 Et son utilisation en pratique:
 
 #block(breakable: false)[
-```typ
-#custom_table(
-  columns: (1fr, 1fr, 1fr, 1fr, 1fr),
-  table.cell(rowspan: 2)[],
-  table.cell(colspan: 2)[2025],
-  table.cell(colspan: 2)[2026],
-  table.cell(colspan: 2)[Quad 1],
-  [Quad 2], [Quad 3],
-  [Rattrapage?],
-  table.cell(colspan: 2)[Non],
-  [Non],
-  [Oui]
-)
-```
+  ```typ
+  #custom_table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    table.cell(rowspan: 2)[],
+    table.cell(colspan: 2)[2025],
+    table.cell(colspan: 2)[2026],
+    table.cell(colspan: 2)[Quad 1],
+    [Quad 2], [Quad 3],
+    [Rattrapage?],
+    table.cell(colspan: 2)[Non],
+    [Non],
+    [Oui]
+  )
+  ```
 ]
 #let custom_table(
-  ..args
+  ..args,
 ) = context {
+  let primary_color = heh_config.get().campus.style.primary_color
 
-    let primary_color = campus_config_context.get().style.primary_color
-
-    show table.cell: it => {
-    if(it.y <= 1 or it.x == 0) {
+  show table.cell: it => {
+    if (it.y <= 1 or it.x == 0) {
       set text(white, weight: "bold")
       it
     } else {
@@ -386,13 +392,13 @@ Et son utilisation en pratique:
     }
   }
 
-  table(..args,     fill: (x, y) => {
-    if (y <= 1 or x == 0) {
-      primary_color.darken(40%)
-    } else {
-      primary_color.transparentize(90%)
-    }
-  })
+  table(..args, fill: (x, y) => {
+      if (y <= 1 or x == 0) {
+        primary_color.darken(40%)
+      } else {
+        primary_color.transparentize(90%)
+      }
+    })
 }
 
 #custom_table(
@@ -401,11 +407,12 @@ Et son utilisation en pratique:
   table.cell(colspan: 2)[2025],
   table.cell(colspan: 2)[2026],
   table.cell(colspan: 2)[Quad 1],
-  [Quad 2], [Quad 3],
+  [Quad 2],
+  [Quad 3],
   [Rattrapage?],
   table.cell(colspan: 2)[Non],
   [Non],
-  [Oui]
+  [Oui],
 )
 
 == Boites (information / important / ...)

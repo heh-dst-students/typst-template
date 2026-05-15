@@ -1,14 +1,14 @@
+#import "/utils/states.typ": heh_config
+
 // Affiche le titre à gauche et l'académique à droite
 #let year_title(
-  document_config: (),
-  print_config: (),
-  campus_config: (),
   title_left: true,
-) = {
+) = context {
+  let config = heh_config.get()
   let year_content = [
-    Année académique #text(document_config.year, fill: campus_config.style.primary_color)
+    Année académique #text(config.document.year, fill: config.campus.style.primary_color)
   ]
-  let title_content = document_config.doc_title
+  let title_content = config.docoument.doc_title
 
   let lhs = if title_left { title_content } else { year_content }
   let rhs = if title_left { year_content } else { title_content }

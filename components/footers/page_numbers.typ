@@ -1,8 +1,5 @@
 // Affiche les numéros de page à droite
 #let page_numbers(
-  document_config: (),
-  print_config: (),
-  campus_config: (),
   show_total: true,
 ) = {
   align(
