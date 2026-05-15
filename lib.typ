@@ -1,14 +1,16 @@
-#import "pages/cover_page.typ": heh_cover_page
-#import "pages/outline.typ": heh_outline_page
-#import "pages/blank_page.typ": heh_blank_page
-#import "data/config.typ"
-#import "data/campus.typ"
+#import "/pages/cover_page.typ": heh_cover_page
+#import "/pages/outline.typ": heh_outline_page
+#import "/pages/blank_page.typ": heh_blank_page
+
+#import "/data/config.typ"
+#import "/data/campus.typ"
+
 #import "/utils/states.typ": heh_config
-#import "components/box/boxes.typ": hint, important, info, monochrome, silly
-#import "components/tables/double_table.typ": double_table
 
 #import "/components/headers/headers.typ"
 #import "/components/footers/footers.typ"
+#import "/components/boxes.typ": hint, important, info, monochrome, silly
+#import "/components/double_table.typ": double_table
 
 #import "/style/defaults.typ" as style_defaults
 
