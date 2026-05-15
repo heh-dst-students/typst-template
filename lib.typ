@@ -9,7 +9,7 @@
 
 #import "/components/headers/headers.typ"
 #import "/components/footers/footers.typ"
-#import "/components/boxes.typ": hint, important, info, monochrome, silly
+#import "/components/boxes.typ": hint, important, info, silly
 #import "/components/double_table.typ": double_table
 
 #import "/style/defaults.typ" as style_defaults
