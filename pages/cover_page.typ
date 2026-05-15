@@ -1,4 +1,5 @@
-#import "/utils/vsvg.typ": vsvg_heh
+#import "/utils/utils.typ": campus_branded_svg, heh_logo
+
 #import "/data/config.typ": default_document_config, default_print_config
 #import "/data/campus.typ"
 
@@ -14,13 +15,7 @@
   set page(margin: (x: 45pt, y: 45pt))
   set text(font: ("Roboto", "Inter"))
 
-  box(
-    vsvg_heh(
-      source: "/assets/logos/heh-logo.vsvg",
-      campus_config: campus_config,
-      width: 200pt,
-    ),
-  )
+  box(heh_logo(campus_config))
   h(1fr)
   [Année académique #text(document_config.year, fill: campus_config.style.primary_color)]
 
@@ -37,9 +32,9 @@
           row-gutter: 5pt,
           column-gutter: 5pt,
 
-          vsvg_heh(
-            source: "/assets/icons/address.vsvg",
-            campus_config: campus_config,
+          campus_branded_svg(
+            "/assets/icons/address.vsvg",
+            campus_config,
           ),
           text(
             campus_config.contact.address_line1
@@ -47,18 +42,18 @@
               + campus_config.contact.address_line2,
           ),
 
-          vsvg_heh(
-            source: "/assets/icons/phone.vsvg",
-            campus_config: campus_config,
+          campus_branded_svg(
+            "/assets/icons/phone.vsvg",
+            campus_config,
           ),
           link(
             "tel:" + campus_config.contact.phone_nr_short,
             campus_config.contact.phone_nr_pretty,
           ),
 
-          vsvg_heh(
-            source: "/assets/icons/mail.vsvg",
-            campus_config: campus_config,
+          campus_branded_svg(
+            "/assets/icons/mail.vsvg",
+            campus_config,
           ),
           link(
             "mailto:" + campus_config.contact.mail,

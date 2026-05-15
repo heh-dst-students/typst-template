@@ -1,4 +1,4 @@
-#import "/contexts/campus_config.typ": campus_config_context
+#import "/utils/states.typ": campus_config_context
 
 #let double_table(
   ..args,

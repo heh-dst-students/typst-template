@@ -1,5 +1,14 @@
-#let vsvg(
-  source: "image.vsvg",
+#let show_if_has_match(
+  selector: heading,
+  to_show: outline,
+) = context {
+  if (counter(selector).final().at(0) >= 1) {
+    to_show()
+  }
+}
+
+#let template_svg(
+  source,
   params: (key: "variable", value: "value"),
   ..args,
 ) = {
@@ -15,12 +24,22 @@
   image(bytes(imageString), ..args)
 }
 
-#let vsvg_heh(
-  source: "image.vsvg",
-  campus_config: (),
+#let single_color_svg(
+  source,
+  color,
   ..args,
-) = vsvg(
-  source: source,
+) = template_svg(
+  source,
+  params: ((key: "color", value: color.to-hex()),),
+  ..args,
+)
+
+#let campus_branded_svg(
+  source,
+  campus_config,
+  ..args,
+) = template_svg(
+  source,
   params: (
     (key: "color", value: campus_config.style.primary_color.to-hex()),
     (key: "title", value: campus_config.naming.logo_title),
@@ -29,13 +48,5 @@
   ..args,
 )
 
+#let heh_logo(..args) = campus_branded_svg("/assets/logos/heh-logo.vsvg", ..args)
 
-#let vsvg_with_one_accent_color(
-  source: "image.vsvg",
-  accent_color: rgb("#FFFFFF"),
-  ..args,
-) = vsvg(
-  source: source,
-  params: ((key: "color", value: accent_color.to-hex()),),
-  ..args,
-)

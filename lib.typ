@@ -1,15 +1,14 @@
-#import "pages/cover.typ": heh_cover_page
+#import "pages/cover_page.typ": heh_cover_page
 #import "pages/outline.typ": heh_outline_page
 #import "pages/blank_page.typ": heh_blank_page
 #import "data/config.typ"
 #import "data/campus.typ"
-#import "utils/vsvg.typ": vsvg_heh
+#import "/utils/states.typ": campus_config_context
 #import "components/box/boxes.typ": hint, important, info, monochrome, silly
 #import "components/tables/defaults.typ": tables_defaults
 #import "components/tables/double_table.typ": double_table
 #import "headers/headers.typ"
 #import "footers/footers.typ"
-#import "contexts/campus_config.typ": campus_config_context
 
 #let heh_template(
   document_config_fn: config.default_document_config,

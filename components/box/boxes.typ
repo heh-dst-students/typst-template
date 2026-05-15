@@ -1,4 +1,4 @@
-#import "/utils/vsvg.typ": vsvg_with_one_accent_color
+#import "/utils/utils.typ": single_color_svg
 
 #let box_default_styling = box.with(
   width: 100%,
@@ -10,14 +10,6 @@
   row-gutter: 14pt,
   column-gutter: 8pt,
   align: (alignment.center, alignment.horizon),
-)
-
-#let top_left_icon(
-  icon_path,
-  accent_color,
-) = vsvg_with_one_accent_color(
-  source: icon_path,
-  accent_color: accent_color,
 )
 
 #let monochrome = state("monochrome", false)
@@ -47,7 +39,7 @@
     fill: bg,
     stroke: if monochrome.get() { 1pt + black } else { none },
     grid_with_box_default_styling(
-      top_left_icon(icon_path, true_accent),
+      single_color_svg(icon_path, true_accent),
       title,
       grid.cell(
         x: 0,
