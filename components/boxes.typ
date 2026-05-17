@@ -1,4 +1,5 @@
-#import "/utils/vsvg.typ": vsvg_with_one_accent_color
+#import "/utils/utils.typ": single_color_svg
+#import "/utils/states.typ": heh_config
 
 #let box_default_styling = box.with(
   width: 100%,
@@ -12,16 +13,6 @@
   align: (alignment.center, alignment.horizon),
 )
 
-#let top_left_icon(
-  icon_path,
-  accent_color,
-) = vsvg_with_one_accent_color(
-  source: icon_path,
-  accent_color: accent_color,
-)
-
-#let monochrome = state("monochrome", false)
-
 #let box_default(
   content,
   accent_color: rgb("#34356B"),
@@ -29,9 +20,12 @@
   icon_path: "/assets/icons/information.vsvg",
   bg: auto,
 ) = context {
-  let true_accent = if monochrome.get() { black } else { accent_color }
+  let config = heh_config.get()
+  let monochrome = config.print.monochrome
 
-  let bg = if monochrome.get() {
+  let true_accent = if monochrome { black } else { accent_color }
+
+  let bg = if monochrome {
     white
   } else {
     if bg == auto {
@@ -45,9 +39,9 @@
 
   box_default_styling(
     fill: bg,
-    stroke: if monochrome.get() { 1pt + black } else { none },
+    stroke: if monochrome { 1pt + black } else { none },
     grid_with_box_default_styling(
-      top_left_icon(icon_path, true_accent),
+      single_color_svg(icon_path, true_accent),
       title,
       grid.cell(
         x: 0,

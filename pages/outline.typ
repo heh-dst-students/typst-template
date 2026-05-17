@@ -1,5 +1,5 @@
 #import "/data/config.typ": default_print_config
-#import "/utils/show_if_there_is_one_element.typ": show_if_there_is_one_element
+#import "/utils/utils.typ": show_if_has_match
 
 #let heh_outline_page(
   print_config_fn: default_print_config,
@@ -9,8 +9,8 @@
 
   if (outlines != none and outlines != ()) {
     for o in outlines {
-      show_if_there_is_one_element(
-        element: o.target,
+      show_if_has_match(
+        selector: o.target,
         to_show: outline.with(title: o.title, target: o.target),
       )
     }
