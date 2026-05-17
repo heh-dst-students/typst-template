@@ -8,6 +8,8 @@
     ("Prenom Nom", "prenom.nom@std.heh.be"),
     ("Xy Z", "xy.z@std.heh.be"),
   ),
+  exam_session: "Juin 2026",
+  internal_promoter: "NOM PRÉNOM"
 ) = {
   return (
     doc_title: doc_title,
@@ -16,6 +18,8 @@
     orientation_name: orientation_name,
     year: year,
     authors: authors,
+    exam_session: exam_session,
+    internal_promoter: internal_promoter
   )
 }
 
