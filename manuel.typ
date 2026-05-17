@@ -432,7 +432,7 @@ Pour les utilisez, importez les fonctions `info`, `important` ou `hint` depuis l
 ```
 
 #info[Information utile]
-#hint[N"oubliez pas que vous pouvez entièrement customiser les boîtes d'information]
+#hint[N'oubliez pas que vous pouvez entièrement customiser les boîtes d'information]
 #important[N'oubliez pas de mettre à jour le template]
 
 === Boites personalisées
@@ -445,5 +445,5 @@ Pour créer vos propres boites, vous pouvez simplement modifier les fonctions ex
   title: "Super important !",
 )
 
-#superimportant[Attention, il faut impérativement penser à mettre à jour le tmeplate]
+#superimportant[Attention, il faut impérativement penser à mettre à jour le template]
 ```
