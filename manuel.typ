@@ -447,3 +447,38 @@ Pour créer vos propres boites, vous pouvez simplement modifier les fonctions ex
 
 #superimportant[Attention, il faut impérativement penser à mettre à jour le template]
 ```
+
+== Présentations
+
+HEH-Template vous permet de réaliser des présentations composées de slides avec l'aide de #link("https://polylux.dev/book", "polylux"). Pour un exemple plus complet, référez vous à `demo_presentation.typ`.
+
+=== Utilisation basique
+
+Les présentations sont composées de groupes de slides. Ceux ci sont créés avec la fonction `slidegroup`. Par exemple:
+
+```
+#import "@preview/heh-template:1.0.0": heh_presentation_template, slidegroup, slide
+
+#show: heh_presentation_template.with(
+  ... // config
+  handout_mode: false // Active le mode "handout" (supprime les animations)
+)
+
+
+#slidegroup("Introduction")[
+  #slide[
+    == Titre de la slide
+
+    Bonjour !
+  ]
+
+  #slide[
+    == Titre de l'autre slide
+
+    Hello !
+  ]
+]
+```
+
+Vous pouvez aussi utiliser les `uncover`, `item-by-item`, ... et les autres helpers de polylux pour faire des animations (référez vous à la #link("https://polylux.dev/book", "documentation polylux"))
+
