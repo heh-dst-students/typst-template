@@ -2,13 +2,15 @@
 #import "/components/headers/headers.typ": logo_year_title;
 #import "/utils/states.typ": heh_config
 
-
 #let tfe_cover_page(
   show_year: false
 ) = context {
-  logo_year_title(show_title: false)
+  set page(margin: (x: 45pt, y: 45pt), header: none, footer: none)
+  set text(font: ("Roboto", "Inter"), size: 14pt)
+  show link: set text(fill: black)
   let config = heh_config.get()
-
+  logo_year_title(show_title: false)
+  
   v(.4fr)
 
   align(

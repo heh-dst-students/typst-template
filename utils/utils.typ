@@ -1,5 +1,19 @@
 #import "/utils/states.typ": heh_config
 
+#let get_next_heading(level: 1) = context {
+  let headings = query(heading.where(level: level).after(here()))
+  if headings.len() > 0 {
+    let h = headings.first()
+    if h.location().page() == here().page() {
+      h.body
+    } else {
+      none
+    }
+  } else {
+    none
+  }
+}
+
 #let show_if_has_match(
   selector: heading,
   to_show: outline,
