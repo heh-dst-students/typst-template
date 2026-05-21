@@ -6,3 +6,7 @@ authors = ["Woomymy", "Hana"]
 license = "MIT"
 description = "Unofficial HEH template for typst"
 
+[template]
+path = "template"
+entrypoint = "main.typ"
+
