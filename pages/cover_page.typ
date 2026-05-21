@@ -3,8 +3,9 @@
 
 #let heh_cover_page() = context {
   let config = heh_config.get()
-  set page(margin: (x: 45pt, y: 45pt))
-  set text(font: ("Roboto", "Inter"))
+  set page(margin: (x: 45pt, y: 45pt), header: none, footer: none)
+  set text(font: ("Roboto", "Inter"), size: 14pt)
+  show link: set text(fill: black)
 
   box(heh_logo(width: 200pt))
   h(1fr)
