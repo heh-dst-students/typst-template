@@ -8,6 +8,9 @@
     ("Prenom Nom", "prenom.nom@std.heh.be"),
     ("Xy Z", "xy.z@std.heh.be"),
   ),
+  exam_session: "Juin 2026",
+  internal_promoter: "NOM PRÉNOM",
+  thanks: "Mes plus sincères remerciements à toutes les personnes qui nous ont aidées de près ou de loin à réaliser le projet HEH-Template"
 ) = {
   return (
     doc_title: doc_title,
@@ -16,6 +19,9 @@
     orientation_name: orientation_name,
     year: year,
     authors: authors,
+    exam_session: exam_session,
+    internal_promoter: internal_promoter,
+    thanks: thanks
   )
 }
 
