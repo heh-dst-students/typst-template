@@ -2,9 +2,9 @@
 #let heh_config = state(
   "heh_config",
   (
-    document: (),
-    print: (),
-    campus: (),
+    document: (:),
+    print: (:),
+    campus: (:),
   ),
 )
 
