@@ -8,7 +8,7 @@
 
   set table(
     stroke: none,
-    inset: 8pt,
+    inset: 0.6em,
     gutter: 2pt,
     fill: (x, y) => {
       if (y == 0) {
