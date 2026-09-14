@@ -1,14 +1,20 @@
+#import "/utils/utils.typ": format_author_names
 #import "/utils/states.typ": heh_config
 
 #let presentation_footer() = context {
   set text(size: 14pt)
   let config = heh_config.get()
-  columns(3, {
-    config.document.authors.map(a => a.at(0)).join(", ", last: " et ")
-    colbreak()
-    align(center, config.document.doc_title)
+  grid(columns: (auto, 3fr, 1fr),
+  {
+    format_author_names(config.document.authors, false).join(", ", last: " et ")
+  },
+  {
+    align(center, {
+      config.document.doc_title
+    })
+  },
+  {
     // Affiche les numéros de page à droite
-    colbreak()
     align(
       right,
       counter(page).display(
@@ -16,5 +22,6 @@
         both: true,
       ),
     )
-  })
+  }
+  )
 }
