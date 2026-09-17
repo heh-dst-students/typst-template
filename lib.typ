@@ -1,7 +1,8 @@
 #import "/pages/cover_page.typ": heh_cover_page
+#import "/pages/presentation_cover_page.typ": presentation_cover_page
+#import "/pages/tfe_cover_page.typ": tfe_cover_page
 #import "/pages/outline.typ": heh_outline_page
 #import "/pages/blank_page.typ": heh_blank_page
-#import "/pages/tfe_cover_page.typ": tfe_cover_page
 #import "/pages/thanks.typ": thanks_page
 
 #import "/data/config.typ"
@@ -117,17 +118,17 @@
   heh_config.update(conf)
   enable-handout-mode(handout_mode)
 
-  set text(size: 24pt)
+  set text(size: 20pt)
   show: heh_common_template
   set page(
-    "presentation-4-3",
+    "presentation-16-9",
 
     header: context { headers.presentation_header() },
     footer: context { footers.presentation_footer() },
-    margin: (top: 125pt),
+    margin: (top: 100pt, x: 30pt),
   )
 
-  slide[#heh_cover_page()]
+  slide[#presentation_cover_page()]
 
   show heading.where(level: 2): none
 

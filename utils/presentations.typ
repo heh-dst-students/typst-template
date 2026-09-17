@@ -15,15 +15,16 @@
   group_current_slide.update(0)
 
   slide[
-    #align(left, [
+    #align(left + horizon, [
       #set page(header: context {
         presentation_header(show_progression: false, show_titles: false)
       })
       #set heading(numbering: "1.")
       #show heading: set text(
-        size: 2em,
+        size: 1.5em,
         weight: "bold",
-        fill: configuration.campus.style.primary_color,
+        fill: black,
+        top-edge: "cap-height"
       )
 
       = #title

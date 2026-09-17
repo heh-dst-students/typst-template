@@ -71,3 +71,21 @@
   ..args,
 )
 
+#let format_author_names(authors, include_email, email_separator: linebreak()) = {
+  let formatted_authors = ()
+
+  for author in authors {
+    // Le 3ème champ peut être le nom abrégé de l'auteur
+    let name = author.at(2, default: author.at(0))
+    let email = author.at(1)
+
+    if include_email {
+      formatted_authors.push([#name#email_separator#email])
+    } else {
+      formatted_authors.push([#name])
+    }
+  }
+  
+  return formatted_authors
+}
+

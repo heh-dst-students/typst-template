@@ -10,21 +10,25 @@
   let config = heh_config.get()
   set text(size: 14pt)
 
-  columns(3, context {
-    heh_logo(width: 200pt)
-    if show_titles {
-      colbreak()
-      align(center + bottom)[
-        #set text(size: 16pt)
-        #underline(group_title_state.get()) :
-        #next_heading
-      ]
-    }
-
+  grid(
+    columns: (100pt, 1fr, auto),
+    heh_logo(width: 200pt),
+    {
+      if show_titles {
+        colbreak()
+        align(center + horizon)[
+          #set text(size: 16pt)
+          #underline(group_title_state.get())
+          #linebreak()
+          #next_heading
+        ]
+      }
+    },
+    context {
     if show_progression {
       colbreak()
 
-      align(right, {
+      align(right + horizon, {
         // La slide actuelle n'est pas passée
         let max_dots = 13
 
