@@ -21,7 +21,7 @@
   bg: auto,
 ) = context {
   let config = heh_config.get()
-  let monochrome = config.print.monochrome
+  let monochrome = config.print.at("monochrome", default: false)
 
   let true_accent = if monochrome { black } else { accent_color }
 
