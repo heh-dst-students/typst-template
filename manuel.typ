@@ -101,6 +101,12 @@ Les données de configuration des pages / du document se trouvent dans `print_co
 ...
 ```
 
+#important[
+  Le paramètre `monochromeimages` utilise un module externe pour transformer les images en nuances de gris. La conversion peut prendre un certain temps lors de la compilation.
+
+  Les images à convertir doivent être spécifiées avec un `path` comme ceci: `#image(path("image.png"))`
+]
+
 #hint[
   Pour définir le paramètre `monochrome` plus simplement, vous pouvez utilise `sys.inputs` et compiler le fichier avec `--input monochrome=true`
 

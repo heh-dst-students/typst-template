@@ -6,12 +6,14 @@
     if (
       config.print.monochromeimages
         and config.print.monochrome
-        and type(it.source) == str
+        and type(it.source) == path
     ) {
-      import "@preview/grayness:0.5.0": plg
+      import "@preview/grayness:0.8.0": plg
       let source = read(it.source, encoding: none)
 
-      let graybytes = if it.source.ends-with("svg") {
+      let is_svg = source.slice(0, 1).at(0) == str.to-unicode("<")
+
+      let graybytes = if is_svg {
         plg.svg_grayscale(source)
       } else {
         plg.grayscale(source)
