@@ -24,7 +24,7 @@ Pour utiliser le template, commencez par le télécharger dans le dossier de vos
 Afin que le style sout appliqué en entier, utilisez une directive `show` globale au document:
 
 ```typst
-#import "@local/heh-template:1.0.0" : heh_template, campus, config
+#import "@preview/heh-template:1.0.0" : heh_template, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
 #show: heh_template.with(
@@ -41,7 +41,7 @@ Afin que le style sout appliqué en entier, utilisez une directive `show` global
 Pour modifier la configuration du document, vous devez modifier la fonction `default_document_config` avec `.with()` pour changer ses paramètres par défaut. Par exemple:
 
 ```typst
-#import "@local/heh-template:1.0.0" : heh_template, campus, config
+#import "@preview/heh-template:1.0.0" : heh_template, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
 #show: heh_template.with(
@@ -66,7 +66,7 @@ Pour modifier la configuration du document, vous devez modifier la fonction `def
 
 = Style du document
 
-Comme paramètre pour `campus_config_fn`, vous pouvez choisir parmis les différents départements de la HEH.
+Comme paramètre pour `campus_config_fn`, vous pouvez choisir parmi les différents départements de la HEH.
 
 - `dst_config` : Département des sciences et technologies
 - `dss_ms_config` : Département des sciences sociales (Mons)
@@ -141,7 +141,7 @@ Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le temp
 == Exemple de changement de footers
 
 ```typst
-#import "@local/heh-template:1.0.0" : headers, footers, ...
+#import "@preview/heh-template:1.0.0" : headers, footers, ...
 ...
 #show: heh_template.with(
     ...
@@ -430,7 +430,7 @@ Pour les utilisez, importez les fonctions `info`, `important` ou `hint` depuis l
 === Exemple
 
 ```typst
-#import "@local/heh-template:1.0.0" : info, important, hint
+#import "@preview/heh-template:1.0.0" : info, important, hint
 
 #info[Information utile]
 #hint[N'oubliez pas que vous pouvez entièrement customiser les boites d'information]

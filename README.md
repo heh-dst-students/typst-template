@@ -33,14 +33,14 @@ La librairie de composants dispose des éléments suivants:
 
 Pour commencer, vous devez avoir Typst `v0.15.x` ou une version supérieur afin d'être sur que la librairie puisse fonctionner. Il est également vivement conseilé de comprendre au moins le base de la rédaction de document en [typst](https://typst.app/).
 
-Pour utiliser le package, vous n'avez qu'a ajouter la ligne `#import "@preview/HEH-typst:1.0.0"` en haut de n'importe quel fichier .typ
+Pour utiliser le package, vous n'avez qu'a ajouter la ligne `#import "@preview/heh-template:1.0.0"` en haut de n'importe quel fichier .typ
 
 Pour créer un document simple il suffit d'instancier le template de document avec les paramètres suivants:
 ```typst
-#import "@local/HEH-typst:1.0.0": HEH_template, campus, config
+#import "@preview/heh-template:1.0.0": heh_document_template, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: HEH_template.with(
+#show: heh_document_template.with(
   campus_config_fn: campus.dst_config,
   document_config_fn: config.default_document_config
 )
