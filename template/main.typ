@@ -1,4 +1,4 @@
-#import "@local/heh-template:1.0.0": *
+#import "@preview/heh-template:1.0.0": *
 
 #show: heh_document_template.with(
   document_config_fn: config.default_document_config.with(
@@ -7,11 +7,13 @@
     formation_name: none,
     orientation_name: none,
     authors: (
-      ("Auteur", ""),
+      ("Auteur", "john.doe@example.com"),
     ),
   ),
   print_config_fn: config.default_print_config.with(
     monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true",
   ),
 )
+
+= Hello, world
 
