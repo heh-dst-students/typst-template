@@ -71,7 +71,11 @@
   ..args,
 )
 
-#let format_author_names(authors, include_email, email_separator: linebreak()) = {
+#let format_author_names(
+  authors,
+  include_email,
+  email_separator: linebreak(),
+) = {
   let formatted_authors = ()
 
   for author in authors {
@@ -85,7 +89,7 @@
       formatted_authors.push([#name])
     }
   }
-  
+
   return formatted_authors
 }
 

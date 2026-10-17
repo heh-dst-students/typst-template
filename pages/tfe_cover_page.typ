@@ -3,14 +3,14 @@
 #import "/utils/states.typ": heh_config
 
 #let tfe_cover_page(
-  show_year: false
+  show_year: false,
 ) = context {
   set page(margin: (x: 45pt, y: 45pt), header: none, footer: none)
   set text(font: ("Roboto", "Inter"), size: 14pt)
   show link: set text(fill: black)
   let config = heh_config.get()
   logo_year_title(show_title: false)
-  
+
   v(.4fr)
 
   align(
@@ -18,12 +18,12 @@
     text(
       size: 14pt,
       top-edge: 1.25em,
-      spacing: 100% + 2pt
+      spacing: 100% + 2pt,
     )[
       HAUTE ÉCOLE DE LA COMMUNAUTÉ FRANÇAISE EN HAINAUT \
       #config.campus.naming.full_name \
       #config.campus.contact.address_line1 - #config.campus.contact.address_line2
-    ]
+    ],
   )
 
   v(1fr)
@@ -32,7 +32,7 @@
     center,
     text(size: 16pt, weight: "bold")[
       #config.document.doc_title
-    ]
+    ],
   )
 
   v(.3fr)
@@ -41,7 +41,7 @@
     center,
     text(size: 12pt)[
       #config.document.doc_description
-    ]
+    ],
   )
 
   v(1fr)

@@ -24,7 +24,7 @@
         size: 1.5em,
         weight: "bold",
         fill: black,
-        top-edge: "cap-height"
+        top-edge: "cap-height",
       )
 
       = #title

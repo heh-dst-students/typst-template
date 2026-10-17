@@ -25,52 +25,55 @@
       }
     },
     context {
-    if show_progression {
-      colbreak()
+      if show_progression {
+        colbreak()
 
-      align(right + horizon, {
-        // La slide actuelle n'est pas passée
-        let max_dots = 13
+        align(right + horizon, {
+          // La slide actuelle n'est pas passée
+          let max_dots = 13
 
-        let passed_slides = group_current_slide.get().at(0) - 1
-        let remaining_slides = group_slide_count.get().at(0) - passed_slides - 1
-
-        let total_slides = passed_slides + remaining_slides + 1
-
-        if total_slides > max_dots {
-          if passed_slides > 1 {
-            passed_slides = calc.max(
-              1,
-              passed_slides - (total_slides - max_dots),
-            )
-          }
-          total_slides = passed_slides + remaining_slides + 1
-          if total_slides > max_dots {
-            remaining_slides = calc.max(
-              0,
-              remaining_slides - (total_slides - max_dots),
-            )
-          }
-        }
-
-        let slidecircle(fill: none) = box(inset: 3pt, circle(
-          radius: 4pt,
-          fill: fill,
-        ))
-
-        for _ in range(passed_slides) {
-          slidecircle(
-            fill: config.campus.style.primary_color.transparentize(60%),
+          let passed_slides = group_current_slide.get().at(0) - 1
+          let remaining_slides = (
+            group_slide_count.get().at(0) - passed_slides - 1
           )
-        }
 
-        slidecircle(fill: config.campus.style.primary_color)
+          let total_slides = passed_slides + remaining_slides + 1
 
-        for _ in range(remaining_slides) {
-          slidecircle()
-        }
-      })
-    }
-  })
+          if total_slides > max_dots {
+            if passed_slides > 1 {
+              passed_slides = calc.max(
+                1,
+                passed_slides - (total_slides - max_dots),
+              )
+            }
+            total_slides = passed_slides + remaining_slides + 1
+            if total_slides > max_dots {
+              remaining_slides = calc.max(
+                0,
+                remaining_slides - (total_slides - max_dots),
+              )
+            }
+          }
+
+          let slidecircle(fill: none) = box(inset: 3pt, circle(
+            radius: 4pt,
+            fill: fill,
+          ))
+
+          for _ in range(passed_slides) {
+            slidecircle(
+              fill: config.campus.style.primary_color.transparentize(60%),
+            )
+          }
+
+          slidecircle(fill: config.campus.style.primary_color)
+
+          for _ in range(remaining_slides) {
+            slidecircle()
+          }
+        })
+      }
+    },
+  )
 }
 

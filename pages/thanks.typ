@@ -4,7 +4,7 @@
   let config = heh_config.get()
   box(
     width: 60%,
-    text(style: "italic", {config.document.thanks})
+    text(style: "italic", { config.document.thanks }),
   )
   pagebreak()
 }

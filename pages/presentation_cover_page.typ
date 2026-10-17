@@ -63,10 +63,10 @@
   }
 
   v(1fr)
-  
+
   grid(
     columns: (auto, 1fr),
-  text(
+    text(
       config
         .document
         .authors
@@ -75,24 +75,23 @@
         ))
         .join(linebreak()),
     ),
-      align(right, box(
-        fill: config.campus.style.primary_color,
-        width: 90%,
-        inset: (x: 20pt, y: 20pt),
-        align(left)[
-          #set text(size: 15pt, fill: config.campus.style.onprimary_color)
+    align(right, box(
+      fill: config.campus.style.primary_color,
+      width: 90%,
+      inset: (x: 20pt, y: 20pt),
+      align(left)[
+        #set text(size: 15pt, fill: config.campus.style.onprimary_color)
 
-          #text(weight: "bold")[
-            #config.document.doc_title
-          ]
+        #text(weight: "bold")[
+          #config.document.doc_title
+        ]
 
-          #config.document.doc_description
+        #config.document.doc_description
 
-          #config.document.formation_name \
-          #config.document.orientation_name
-        ],
-      )
-    )
+        #config.document.formation_name \
+        #config.document.orientation_name
+      ],
+    )),
   )
 
   v(1fr)
@@ -100,7 +99,6 @@
   align(bottom + right, grid(
     columns: (auto, auto),
     gutter: 24pt,
-  
 
     image(
       "/assets/logos/wbe.svg",
