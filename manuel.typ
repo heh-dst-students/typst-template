@@ -1,8 +1,8 @@
 #import "./lib.typ": (
-  config, double_table, heh_config, heh_template, hint, important, info,
+  config, double_table, heh_config, heh_document_template, hint, important, info,
 )
 
-#show: heh_template.with(
+#show: heh_document_template.with(
   document_config_fn: config.default_document_config.with(
     doc_title: "Documentation de HEH-Template",
     doc_description: "Démonstration et documentation du template",
@@ -24,10 +24,10 @@ Pour utiliser le template, commencez par le télécharger dans le dossier de vos
 Afin que le style sout appliqué en entier, utilisez une directive `show` globale au document:
 
 ```typst
-#import "@preview/heh-template:1.0.0" : heh_template, campus, config
+#import "@preview/heh-template:1.0.0" : heh_document_template, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: heh_template.with(
+#show: heh_document_template.with(
   campus_config_fn: campus.dst_config,
   document_config_fn: config.default_document_config
 )
@@ -41,10 +41,10 @@ Afin que le style sout appliqué en entier, utilisez une directive `show` global
 Pour modifier la configuration du document, vous devez modifier la fonction `default_document_config` avec `.with()` pour changer ses paramètres par défaut. Par exemple:
 
 ```typst
-#import "@preview/heh-template:1.0.0" : heh_template, campus, config
+#import "@preview/heh-template:1.0.0" : heh_document_template, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: heh_template.with(
+#show: heh_document_template.with(
   campus_config_fn: campus.dst_config,
   document_config_fn: config.default_document_config.with(
     doc_title: "Titre", // Titre du document
@@ -82,7 +82,7 @@ Les données de configuration des pages / du document se trouvent dans `print_co
 
 ```typst
 ...
-#show: heh_template.with(
+#show: heh_document_template.with(
     ...
     print_config_fn: default_print_config.with(
       monochrome: false, // Si `true`, le document sera affiché uniquement en nuances de gris,
@@ -136,14 +136,14 @@ Les données de configuration des pages / du document se trouvent dans `print_co
 
 = Configuration des pieds de page et en-têtes
 
-Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le template propose *plusieurs styles* et vous permet de définir les vôtres facilement en modifiant les paramètres `header_style` et `footer_style` de `heh_template`. Vous pouvez également y rajouter des paramètres supplémentaires en utilisant la fonction `.with()` sur la fonction du header / footer
+Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le template propose *plusieurs styles* et vous permet de définir les vôtres facilement en modifiant les paramètres `header_style` et `footer_style` de `heh_document_template`. Vous pouvez également y rajouter des paramètres supplémentaires en utilisant la fonction `.with()` sur la fonction du header / footer
 
 == Exemple de changement de footers
 
 ```typst
 #import "@preview/heh-template:1.0.0" : headers, footers, ...
 ...
-#show: heh_template.with(
+#show: heh_document_template.with(
     ...
     header_style: headers.year_title, // Affiche l'année académique et le titre
     header_extra_params: (),
@@ -167,7 +167,7 @@ Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le temp
   let config = heh_config.get()
 }
 
-#show: heh_template.with(
+#show: heh_document_template.with(
     ...
     header_style: myheader.with(show_logo: true),
 )
