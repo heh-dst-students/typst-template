@@ -33,28 +33,28 @@ La librairie de composants dispose des éléments suivants:
 
 Pour commencer, vous devez avoir Typst `v0.15.x` ou une version supérieur afin d'être sur que la librairie puisse fonctionner. Il est également vivement conseilé de comprendre au moins le base de la rédaction de document en [typst](https://typst.app/).
 
-Pour utiliser le package, vous n'avez qu'a ajouter la ligne `#import "@preview/HEH-typst:1.0.0"` en haut de n'importe quel fichier .typ
+Pour utiliser le package, vous n'avez qu'a ajouter la ligne `#import "@preview/heh-template:1.0.0"` en haut de n'importe quel fichier .typ
 
 Pour créer un document simple il suffit d'instancier le template de document avec les paramètres suivants:
 ```typst
-#import "@local/HEH-typst:1.0.0": HEH_template, campus, config
+#import "@preview/heh-template:1.0.0": heh-document, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: HEH_template.with(
-  campus_config_fn: campus.dst_config,
-  document_config_fn: config.default_document_config
+#show: heh-document.with(
+  campus-config-fn: campus.dst-config,
+  document-config-fn: config.default-document-config
 )
 
 = Premier titre
 ```
 
-Vous pouvez choisir votre campus an changent la valeur de `campus.dst_config` par les valeurs suivantes:
-- `campus.dss_ms_config` Pour le Département des Sciences Sociales de Mons.
-- `campus.dss_to_config` Pour le Département des Sciences Sociales de Tournai.
-- `campus.dsee_to_config` Pour le Département des Sciences de l'Éducation et de l'Enseignement de Tournai.
-- `campus.dsee_ms_config` Pour le Département des Sciences de l'Éducation et de l'Enseignement de Mons.
-- `campus.deco_config` Pour le Département des Sciences Juridiques, Éconnomique et gestion.
-- `campus.dst_config` Pour le Département des Sciences et Technologies.
+Vous pouvez choisir votre campus an changent la valeur de `campus.dst-config` par les valeurs suivantes:
+- `campus.dss-ms-config` Pour le Département des Sciences Sociales de Mons.
+- `campus.dss-to-config` Pour le Département des Sciences Sociales de Tournai.
+- `campus.dsee-to-config` Pour le Département des Sciences de l'Éducation et de l'Enseignement de Tournai.
+- `campus.dsee-ms-config` Pour le Département des Sciences de l'Éducation et de l'Enseignement de Mons.
+- `campus.deco-config` Pour le Département des Sciences Juridiques, Éconnomique et gestion.
+- `campus.dst-config` Pour le Département des Sciences et Technologies.
 
 Avec ceci, vous devriez avoir ce qu'il vous faut pour commencer, mais il est important de noter que le template regorge de bien plus de fonctionnalités que ça! Si vous voulez en savoir plus sur comment personnaliser votre documents, comment utiliser les tableaux, boites, le template de TFE et de présentation, jetez un coup d'œil au [manuel d'utilisation](manuel.pdf)!
 

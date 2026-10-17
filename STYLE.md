@@ -7,7 +7,7 @@ Les règles suivantes sont **complémentaires** au style par défaut appliqué p
 ### Indentation
 
 - Le code est indenté avec une longeur de **2 espaces**
-- Les variables et noms de fonctions utilisent la convention **snake_case**
+- Les variables et noms de fonctions utilisent la convention **kebab-case**
 - Les blocs (`()`, `{}`, `[]`, ...) doivent être indentés selon la hiérarchie du document
 
 ### Longeur des lignes

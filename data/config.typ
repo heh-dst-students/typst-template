@@ -1,27 +1,27 @@
-#let default_document_config(
-  doc_title: "Titre",
-  doc_description: "Description",
-  formation_name: "Nom de la formation",
-  orientation_name: "Orientation",
+#let default-document-config(
+  title: "Titre",
+  description: "Description",
+  formation: "Nom de la formation",
+  orientation: "Orientation",
   year: "2025 - 2026",
   authors: (
     ("Prenom Nom", "prenom.nom@std.heh.be"),
     ("Xy Z", "xy.z@std.heh.be"),
   ),
-  exam_session: "Juin 2026",
-  internal_promoter: "NOM PRÉNOM",
-  thanks: "Mes plus sincères remerciements à toutes les personnes qui nous ont aidées de près ou de loin à réaliser le projet HEH-Template"
+  exam-session: "Juin 2026",
+  internal-promoter: "NOM PRÉNOM",
+  thanks: "Mes plus sincères remerciements à toutes les personnes qui nous ont aidées de près ou de loin à réaliser le projet HEH-Template",
 ) = {
   return (
-    doc_title: doc_title,
-    doc_description: doc_description,
-    formation_name: formation_name,
-    orientation_name: orientation_name,
+    title: title,
+    description: description,
+    formation: formation,
+    orientation: orientation,
     year: year,
     authors: authors,
-    exam_session: exam_session,
-    internal_promoter: internal_promoter,
-    thanks: thanks
+    exam-session: exam-session,
+    internal-promoter: internal-promoter,
+    thanks: thanks,
   )
 }
 
@@ -31,17 +31,17 @@
   images: (target: figure.where(kind: image), title: "Table des images"),
 )
 
-#let default_outlines_values = (
+#let default-outlines-values = (
   outlines.headings,
   outlines.tables,
   outlines.images,
 )
 
-#let default_print_config(
+#let default-print-config(
   monochrome: false,
   monochromeimages: true,
-  outlines: default_outlines_values,
-  show_blank_page: false,
+  outlines: default-outlines-values,
+  show-blank-page: false,
   font: "Roboto",
   lang: "fr",
 ) = {
@@ -51,7 +51,7 @@
     outlines: outlines,
     font: font,
     lang: lang,
-    show_blank_page: show_blank_page,
+    show-blank-page: show-blank-page,
   )
 }
 

@@ -1,5 +1,5 @@
-#import "./lib.typ": (
-  campus, config, heh_presentation_template, important, info, slide, slidegroup,
+#import "/lib.typ": (
+  campus, config, heh-presentation, important, info, slide, slidegroup,
 )
 
 #import "@preview/polylux:0.4.0": item-by-item, one-by-one, uncover
@@ -7,20 +7,20 @@
 #import "@preview/cetz:0.5.2"
 #import "@preview/cetz-plot:0.1.3"
 
-#show: heh_presentation_template.with(
-  document_config_fn: config.default_document_config.with(
-    doc_title: "Présentation du HEH-Template",
-    doc_description: "Présentation de démonstration de HEH-Template",
-    formation_name: none,
-    orientation_name: none,
+#show: heh-presentation.with(
+  document-config-fn: config.default-document-config.with(
+    title: "Présentation du HEH-Template",
+    description: "Présentation de démonstration de HEH-Template",
+    formation: none,
+    orientation: none,
     authors: (
       ("Contributeurs de HEH-Template", ""),
     ),
   ),
-  print_config_fn: config.default_print_config.with(
+  print-config-fn: config.default-print-config.with(
     monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true",
   ),
-  campus_config_fn: campus.dst_config,
+  campus-config-fn: campus.dst-config,
 )
 
 #slidegroup("Introduction au template")[

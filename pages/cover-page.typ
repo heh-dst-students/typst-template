@@ -1,17 +1,17 @@
-#import "/utils/utils.typ": campus_branded_svg, heh_logo
-#import "/utils/states.typ": heh_config
+#import "/utils/utils.typ": campus-branded-svg, heh-logo
+#import "/utils/states.typ": heh-config
 
-#let heh_cover_page() = context {
-  let config = heh_config.get()
+#let heh-cover-page() = context {
+  let config = heh-config.get()
   set page(margin: (x: 45pt, y: 45pt), header: none, footer: none)
   set text(font: ("Roboto", "Inter"), size: 14pt)
   show link: set text(fill: black)
 
-  box(heh_logo(width: 200pt))
+  box(heh-logo(width: 200pt))
   h(1fr)
-  [Année académique #text(config.document.year, fill: config.campus.style.primary_color)]
+  [Année académique #text(config.document.year, fill: config.campus.style.primary-color)]
 
-  line(length: 100pt, stroke: 3pt + config.campus.style.primary_color)
+  line(length: 100pt, stroke: 3pt + config.campus.style.primary-color)
 
   {
     set text(size: 8pt)
@@ -24,24 +24,24 @@
           row-gutter: 5pt,
           column-gutter: 5pt,
 
-          campus_branded_svg(
+          campus-branded-svg(
             "/assets/icons/address.vsvg",
           ),
           text(
-            config.campus.contact.address_line1
+            config.campus.contact.address-line1
               + linebreak()
-              + config.campus.contact.address_line2,
+              + config.campus.contact.address-line2,
           ),
 
-          campus_branded_svg(
+          campus-branded-svg(
             "/assets/icons/phone.vsvg",
           ),
           link(
-            "tel:" + config.campus.contact.phone_nr_short,
-            config.campus.contact.phone_nr_pretty,
+            "tel:" + config.campus.contact.phone-nr-short,
+            config.campus.contact.phone-nr-pretty,
           ),
 
-          campus_branded_svg(
+          campus-branded-svg(
             "/assets/icons/mail.vsvg",
           ),
           link(
@@ -50,12 +50,12 @@
           ),
         )
         box(
-          fill: config.campus.style.primary_color,
+          fill: config.campus.style.primary-color,
           inset: 5pt,
           text(
             "WWW.HEH.BE",
             weight: "bold",
-            fill: config.campus.style.onprimary_color,
+            fill: config.campus.style.onprimary-color,
           ),
         )
       },
@@ -65,20 +65,20 @@
   v(1fr)
 
   align(right, box(
-    fill: config.campus.style.primary_color,
+    fill: config.campus.style.primary-color,
     width: 75%,
     inset: (x: 20pt, y: 20pt),
     align(left)[
-      #set text(size: 15pt, fill: config.campus.style.onprimary_color)
+      #set text(size: 15pt, fill: config.campus.style.onprimary-color)
 
       #text(weight: "bold")[
-        #config.document.doc_title
+        #config.document.title
       ]
 
-      #config.document.doc_description
+      #config.document.description
 
-      #config.document.formation_name \
-      #config.document.orientation_name
+      #config.document.formation \
+      #config.document.orientation
     ],
   ))
 

@@ -1,9 +1,9 @@
-#import "/utils/states.typ": heh_config
+#import "/utils/states.typ": heh-config
 
-#let heh_table_defaults(
+#let heh-table-defaults(
   doc,
 ) = context {
-  let config = heh_config.get()
+  let config = heh-config.get()
   show table: it => box(radius: 5pt, clip: true, it)
 
   set table(
@@ -12,9 +12,9 @@
     gutter: 2pt,
     fill: (x, y) => {
       if (y == 0) {
-        config.campus.style.primary_color.darken(40%)
+        config.campus.style.primary-color.darken(40%)
       } else {
-        config.campus.style.primary_color.transparentize(90%)
+        config.campus.style.primary-color.transparentize(90%)
       }
     },
   )

@@ -1,6 +1,6 @@
-#import "/utils/states.typ": heh_config
+#import "/utils/states.typ": heh-config
 
-#let get_next_heading(level: 1) = context {
+#let get-next-heading(level: 1) = context {
   let headings = query(heading.where(level: level).after(here()))
   if headings.len() > 0 {
     let h = headings.first()
@@ -14,16 +14,16 @@
   }
 }
 
-#let show_if_has_match(
+#let show-if-has-match(
   selector: heading,
-  to_show: outline,
+  to-show: outline,
 ) = context {
   if (counter(selector).final().at(0) >= 1) {
-    to_show()
+    to-show()
   }
 }
 
-#let template_svg(
+#let template-svg(
   source,
   params: (key: "variable", value: "value"),
   ..args,
@@ -40,52 +40,56 @@
   image(bytes(imageString), ..args)
 }
 
-#let single_color_svg(
+#let single-color-svg(
   source,
   color,
   ..args,
-) = template_svg(
+) = template-svg(
   source,
   params: ((key: "color", value: color.to-hex()),),
   ..args,
 )
 
-#let campus_branded_svg(
+#let campus-branded-svg(
   source,
   ..args,
 ) = context {
-  let config = heh_config.get()
-  template_svg(
+  let config = heh-config.get()
+  template-svg(
     source,
     params: (
-      (key: "color", value: config.campus.style.primary_color.to-hex()),
-      (key: "title", value: config.campus.naming.logo_title),
-      (key: "subtitle", value: config.campus.naming.logo_subtitle),
+      (key: "color", value: config.campus.style.primary-color.to-hex()),
+      (key: "title", value: config.campus.naming.logo-title),
+      (key: "subtitle", value: config.campus.naming.logo-subtitle),
     ),
     ..args,
   )
 }
 
-#let heh_logo(..args) = campus_branded_svg(
+#let heh-logo(..args) = campus-branded-svg(
   "/assets/logos/heh-logo.vsvg",
   ..args,
 )
 
-#let format_author_names(authors, include_email, email_separator: linebreak()) = {
-  let formatted_authors = ()
+#let format-author-names(
+  authors,
+  include-email,
+  email-separator: linebreak(),
+) = {
+  let formatted-authors = ()
 
   for author in authors {
     // Le 3ème champ peut être le nom abrégé de l'auteur
     let name = author.at(2, default: author.at(0))
     let email = author.at(1)
 
-    if include_email {
-      formatted_authors.push([#name#email_separator#email])
+    if include-email {
+      formatted-authors.push([#name#email-separator#email])
     } else {
-      formatted_authors.push([#name])
+      formatted-authors.push([#name])
     }
   }
-  
-  return formatted_authors
+
+  return formatted-authors
 }
 
