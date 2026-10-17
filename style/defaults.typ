@@ -1,16 +1,16 @@
-#import "/style/images.typ": heh_images_defaults
+#import "/style/images.typ": heh-images-defaults
 #import "/style/text.typ": (
-  heh_headings_defaults, heh_links_defaults, heh_raw_defaults,
+  heh-headings-defaults, heh-links-defaults, heh-raw-defaults,
 )
-#import "/style/tables.typ": heh_table_defaults
+#import "/style/tables.typ": heh-table-defaults
 
-#let heh_style_defaults(
+#let heh-style-defaults(
   doc,
 ) = {
-  show: heh_headings_defaults
-  show: heh_links_defaults
-  show: heh_raw_defaults
+  show: heh-headings-defaults
+  show: heh-links-defaults
+  show: heh-raw-defaults
 
-  show: heh_table_defaults
+  show: heh-table-defaults
   doc
 }

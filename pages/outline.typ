@@ -1,17 +1,17 @@
-#import "/data/config.typ": default_print_config
-#import "/utils/utils.typ": show_if_has_match
+#import "/data/config.typ": default-print-config
+#import "/utils/utils.typ": show-if-has-match
 
-#let heh_outline_page(
-  print_config_fn: default_print_config,
+#let heh-outline-page(
+  print-config-fn: default-print-config,
 ) = {
-  let print_config = print_config_fn()
-  let outlines = print_config.outlines
+  let print-config = print-config-fn()
+  let outlines = print-config.outlines
 
   if (outlines != none and outlines != ()) {
     for o in outlines {
-      show_if_has_match(
+      show-if-has-match(
         selector: o.target,
-        to_show: outline.with(title: o.title, target: o.target),
+        to-show: outline.with(title: o.title, target: o.target),
       )
     }
     pagebreak()

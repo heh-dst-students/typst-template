@@ -1,7 +1,7 @@
-#import "/utils/states.typ": heh_config
+#import "/utils/states.typ": heh-config
 
-#let thanks_page() = context {
-  let config = heh_config.get()
+#let thanks-page() = context {
+  let config = heh-config.get()
   box(
     width: 60%,
     text(style: "italic", { config.document.thanks }),

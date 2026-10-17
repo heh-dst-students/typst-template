@@ -1,6 +1,6 @@
 // Contient la configuration du document
-#let heh_config = state(
-  "heh_config",
+#let heh-config = state(
+  "heh-config",
   (
     document: (:),
     print: (:),
@@ -9,8 +9,8 @@
 )
 
 
-#let slidegroups_count = counter("slidegroups")
-#let group_slide_count = counter("group_slide_count")
-#let group_title_state = state("group_title", "")
-#let group_current_slide = counter("group_current_slide")
+#let slidegroups-count = counter("slidegroups")
+#let group-slide-count = counter("group-slide-count")
+#let group-title-state = state("group-title", "")
+#let group-current-slide = counter("group-current-slide")
 

@@ -1,18 +1,18 @@
-#import "./lib.typ": (
-  config, double_table, heh_config, heh_document, hint, important, info,
+#import "/lib.typ": (
+  config, double-table, heh-config, heh-document, hint, important, info,
 )
 
-#show: heh_document.with(
-  document_config_fn: config.default_document_config.with(
-    doc_title: "Documentation de HEH-Template",
-    doc_description: "Démonstration et documentation du template",
-    formation_name: none,
-    orientation_name: none,
+#show: heh-document.with(
+  document-config-fn: config.default-document-config.with(
+    title: "Documentation de HEH-Template",
+    description: "Démonstration et documentation du template",
+    formation: none,
+    orientation: none,
     authors: (
       ("Contributeurs de HEH-Template", ""),
     ),
   ),
-  print_config_fn: config.default_print_config.with(
+  print-config-fn: config.default-print-config.with(
     monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true",
   ),
 )
@@ -24,12 +24,12 @@ Pour utiliser le template, commencez par le télécharger dans le dossier de vos
 Afin que le style sout appliqué en entier, utilisez une directive `show` globale au document:
 
 ```typst
-#import "@preview/heh-template:1.0.0" : heh_document, campus, config
+#import "@preview/heh-template:1.0.0" : heh-document, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: heh_document.with(
-  campus_config_fn: campus.dst_config,
-  document_config_fn: config.default_document_config
+#show: heh-document.with(
+  campus-config-fn: campus.dst-config,
+  document-config-fn: config.default-document-config
 )
 
 = Premier titre
@@ -38,19 +38,19 @@ Afin que le style sout appliqué en entier, utilisez une directive `show` global
 
 = Configuration du document
 
-Pour modifier la configuration du document, vous devez modifier la fonction `default_document_config` avec `.with()` pour changer ses paramètres par défaut. Par exemple:
+Pour modifier la configuration du document, vous devez modifier la fonction `default-document-config` avec `.with()` pour changer ses paramètres par défaut. Par exemple:
 
 ```typst
-#import "@preview/heh-template:1.0.0" : heh_document, campus, config
+#import "@preview/heh-template:1.0.0" : heh-document, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: heh_document.with(
-  campus_config_fn: campus.dst_config,
-  document_config_fn: config.default_document_config.with(
-    doc_title: "Titre", // Titre du document
-    doc_description: "Description", // Description du document
-    formation_name: "Bachelier en Informatique", // Nom de la formation
-    orientation_name: "Orientation développement", // Orientation / sous-titre de la formation
+#show: heh-document.with(
+  campus-config-fn: campus.dst-config,
+  document-config-fn: config.default-document-config.with(
+    title: "Titre", // Titre du document
+    description: "Description", // Description du document
+    formation: "Bachelier en Informatique", // Nom de la formation
+    orientation: "Orientation développement", // Orientation / sous-titre de la formation
     year: "2025 - 2026", // Année académique
     authors: ( // Liste contentn le prenom/nom des auteurs avec leur email
       ("Prenom Nom", "prenom.nom@std.heh.be"),
@@ -66,25 +66,25 @@ Pour modifier la configuration du document, vous devez modifier la fonction `def
 
 = Style du document
 
-Comme paramètre pour `campus_config_fn`, vous pouvez choisir parmi les différents départements de la HEH.
+Comme paramètre pour `campus-config-fn`, vous pouvez choisir parmi les différents départements de la HEH.
 
-- `dst_config` : Département des sciences et technologies
-- `dss_ms_config` : Département des sciences sociales (Mons)
-- `dss_to_config` : Département des sciences sociales (Tournai)
-- `dsee_ms_config` : Département des sciences de l'éducation et de l'enseignement (Mons)
-- `dsee_to_config` : Département des sciences de l'éducation et de l'enseignement (Tournai)
-- `deco_config` : Département des sciences juridiques, économiques et de gestion
+- `dst-config` : Département des sciences et technologies
+- `dss-ms-config` : Département des sciences sociales (Mons)
+- `dss-to-config` : Département des sciences sociales (Tournai)
+- `dsee-ms-config` : Département des sciences de l'éducation et de l'enseignement (Mons)
+- `dsee-to-config` : Département des sciences de l'éducation et de l'enseignement (Tournai)
+- `deco-config` : Département des sciences juridiques, économiques et de gestion
 
 
 = Configuration de l'impression / des pages
 
-Les données de configuration des pages / du document se trouvent dans `print_config_fn` qui peut être modifiée de la même façon que `document_config_fn`. Par exemple:
+Les données de configuration des pages / du document se trouvent dans `print-config-fn` qui peut être modifiée de la même façon que `document-config-fn`. Par exemple:
 
 ```typst
 ...
-#show: heh_document.with(
+#show: heh-document.with(
     ...
-    print_config_fn: default_print_config.with(
+    print-config-fn: default-print-config.with(
       monochrome: false, // Si `true`, le document sera affiché uniquement en nuances de gris,
       monochromeimages: true, // Si `true` et que le mode monochrome est activé, transforme automatiquement toutes les images du document en nuances de gris,
 
@@ -136,19 +136,19 @@ Les données de configuration des pages / du document se trouvent dans `print_co
 
 = Configuration des pieds de page et en-têtes
 
-Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le template propose *plusieurs styles* et vous permet de définir les vôtres facilement en modifiant les paramètres `header_style` et `footer_style` de `heh_document`. Vous pouvez également y rajouter des paramètres supplémentaires en utilisant la fonction `.with()` sur la fonction du header / footer
+Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le template propose *plusieurs styles* et vous permet de définir les vôtres facilement en modifiant les paramètres `header-style` et `footer-style` de `heh-document`. Vous pouvez également y rajouter des paramètres supplémentaires en utilisant la fonction `.with()` sur la fonction du header / footer
 
 == Exemple de changement de footers
 
 ```typst
 #import "@preview/heh-template:1.0.0" : headers, footers, ...
 ...
-#show: heh_document.with(
+#show: heh-document.with(
     ...
-    header_style: headers.year_title, // Affiche l'année académique et le titre
-    header_extra_params: (),
-    footer_style: footer.page_numbers.with(
-      show_total: false
+    header-style: headers.year-title, // Affiche l'année académique et le titre
+    header-extra-params: (),
+    footer-style: footer.page-numbers.with(
+      show-total: false
     ), // Affiche les numéros de pages (sans le total)
 )
 ...
@@ -158,18 +158,18 @@ Les pieds et en-têtes de page n'étant pas standards pour toute la HEH, le temp
 == Définition d'une fonction personalisée (headers / footers)
 
 ```typst
-#import "@preview/heh-template:1.0.0": ..., heh_config
+#import "@preview/heh-template:1.0.0": ..., heh-config
 ...
 #let myheader(
-  show_logo: false
+  show-logo: false
 ) = context {
   // Accès à config.campus, config.document et config.print
-  let config = heh_config.get()
+  let config = heh-config.get()
 }
 
-#show: heh_document.with(
+#show: heh-document.with(
     ...
-    header_style: myheader.with(show_logo: true),
+    header-style: myheader.with(show-logo: true),
 )
 ```
 
@@ -184,13 +184,13 @@ Affiche les numéros de page à droite de la page
 
 ```typst
 ...
-footer_style: footers.page_numbers
+footer-style: footers.page-numbers
 ...
 ```
 
 ==== Paramètres
 
-- `show_total`: Affiche le nombre total de pages du document à coté (par défaut)
+- `show-total`: Affiche le nombre total de pages du document à coté (par défaut)
 
 === Numéros de page avec indicateur de coté <footers-no-sided>
 
@@ -198,13 +198,13 @@ Affiche les numéros de page à gauche ou à droite de la page, selon la ou elle
 
 ```typst
 ...
-footer_style: footers.page_numbers_side
+footer-style: footers.page-numbers-side
 ...
 ```
 
 ==== Paramètres
 
-- `show_total`: Affiche le nombre total de pages du document à coté (par défaut)
+- `show-total`: Affiche le nombre total de pages du document à coté (par défaut)
 
 == Liste des headers
 
@@ -216,13 +216,13 @@ footer_style: footers.page_numbers_side
 Affiche le logo a gauche et l'année académique / le titre à droite
 
 ```typst
-header_style: headers.logo_year_title
+header-style: headers.logo-year-title
 ```
 
 ==== Paramètres `.with()`
 
-- `bool show_year`: Affiche l'année acadamique (par défaut)
-- `bool show_title`: Affiche le titre du document (par défaut)
+- `bool show-year`: Affiche l'année acadamique (par défaut)
+- `bool show-title`: Affiche le titre du document (par défaut)
 
 === Année académique et titre <year-title>
 
@@ -230,39 +230,39 @@ Affiche le titre et l'année académique (par défaut le titre à gauche et l'an
 
 ```typst
 ...
-header_style: headers.year_title
+header-style: headers.year-title
 ...
 ```
 
 ==== Paramètres (`.with()`)
 
-- `bool title_left`: Affiche le titre à gauche (par défaut)
+- `bool title-left`: Affiche le titre à gauche (par défaut)
 
 = Modifier les configurations d'un campus
 
-Si vous souhaitez modifier les configurations d'un campus (changer les noms, les couleurs, ...), vous pouvez utiliser les versions modifiées de `**_naming_config`, `**_style_config` et `**_contact_config`.
+Si vous souhaitez modifier les configurations d'un campus (changer les noms, les couleurs, ...), vous pouvez utiliser les versions modifiées de `**-naming-config`, `**-style-config` et `**-contact-config`.
 
 Voici le schéma des configurations:
 
 ```typst
 (
   naming: (
-    short_name: "DST",
-    full_name: "Département des sciences et technologies",
-    logo_title: "Sciences",
-    logo_subtitle: "et technologies",
+    short-name: "DST",
+    full-name: "Département des sciences et technologies",
+    logo-title: "Sciences",
+    logo-subtitle: "et technologies",
   ),
   contact: (
-    address_line1: "Avenue Victor Maistriau 8a",
-    address_line2: "B-7000 Mons",
-    phone_nr_pretty: "+32 (0)65 33 81 54",
-    phone_nr_short: "+3265338154",
+    address-line1: "Avenue Victor Maistriau 8a",
+    address-line2: "B-7000 Mons",
+    phone-nr-pretty: "+32 (0)65 33 81 54",
+    phone-nr-short: "+3265338154",
     mail: "scitech-mons@heh.be",
   ),
   style: (
-    decorations_color: rgb("#2f5496"),
-    primary_color: rgb("#e41513"),
-    onprimary_color: rgb("#ffffff"),
+    decorations-color: rgb("#2f5496"),
+    primary-color: rgb("#e41513"),
+    onprimary-color: rgb("#ffffff"),
   ),
 )
 ```
@@ -271,9 +271,9 @@ Voici le schéma des configurations:
 
 ```typst
 ...
-campus_config_fn: campus.dst_config.with(
-    naming: campus.dst_naming_config.with(
-        full_name: "Département des technologies et sciences"
+campus-config-fn: campus.dst-config.with(
+    naming: campus.dst-naming-config.with(
+        full-name: "Département des technologies et sciences"
     )
 )
 ...
@@ -310,10 +310,10 @@ Par exemple:
 
 == Tableaux double entrées
 
-Si vous voulez utiliser des tableaux a double entrée, vous pouvez importer directement `#double_table()` depuis heh-template
+Si vous voulez utiliser des tableaux a double entrée, vous pouvez importer directement `#double-table()` depuis heh-template
 
 ```typ
-#double_table(
+#double-table(
   columns: (50pt, 1fr, 1fr),
   [], [A], [not A],
   [B], [O], [X],
@@ -321,7 +321,7 @@ Si vous voulez utiliser des tableaux a double entrée, vous pouvez importer dire
 )
 ```
 
-#double_table(
+#double-table(
   columns: (50pt, 1fr, 1fr),
   [],
   [A],
@@ -338,14 +338,14 @@ Si vous voulez utiliser des tableaux a double entrée, vous pouvez importer dire
 
 Pour l'instant, le template ne propose que des tableaux à simple et à double entrée. Si vous souhaitez pousser la modification des tableaux, vous pouvez créer vos propres fonctions:
 
-Vous pouvez utiliser le `state` `heh_config` qui contient l'ensemble de la configuration du document
+Vous pouvez utiliser le `state` `heh-config` qui contient l'ensemble de la configuration du document
 
 ```typ
-#let custom_table(
+#let custom-table(
   ..args
 ) = context {
 
-    let primary_color = heh_config.get().campus.style.primary_color
+    let primary-color = heh-config.get().campus.style.primary-color
 
     show table.cell: it => {
     if(it.y <= 1 or it.x == 0) {
@@ -358,9 +358,9 @@ Vous pouvez utiliser le `state` `heh_config` qui contient l'ensemble de la confi
 
   table(..args,     fill: (x, y) => {
     if (y <= 1 or x == 0) {
-      primary_color.darken(40%)
+      primary-color.darken(40%)
     } else {
-      primary_color.transparentize(90%)
+      primary-color.transparentize(90%)
     }
   })
 }
@@ -370,7 +370,7 @@ Et son utilisation en pratique:
 
 #block(breakable: false)[
   ```typ
-  #custom_table(
+  #custom-table(
     columns: (1fr, 1fr, 1fr, 1fr, 1fr),
     table.cell(rowspan: 2)[],
     table.cell(colspan: 2)[2025],
@@ -384,10 +384,10 @@ Et son utilisation en pratique:
   )
   ```
 ]
-#let custom_table(
+#let custom-table(
   ..args,
 ) = context {
-  let primary_color = heh_config.get().campus.style.primary_color
+  let primary-color = heh-config.get().campus.style.primary-color
 
   show table.cell: it => {
     if (it.y <= 1 or it.x == 0) {
@@ -400,14 +400,14 @@ Et son utilisation en pratique:
 
   table(..args, fill: (x, y) => {
       if (y <= 1 or x == 0) {
-        primary_color.darken(40%)
+        primary-color.darken(40%)
       } else {
-        primary_color.transparentize(90%)
+        primary-color.transparentize(90%)
       }
     })
 }
 
-#custom_table(
+#custom-table(
   columns: (1fr, 1fr, 1fr, 1fr, 1fr),
   table.cell(rowspan: 2)[],
   table.cell(colspan: 2)[2025],
@@ -447,7 +447,7 @@ Pour créer vos propres boites, vous pouvez simplement modifier les fonctions ex
 
 ```typst
 #let superimportant = important.with(
-  accent_color: rgb("#8B0000"),
+  accent-color: rgb("#8B0000"),
   title: "Super important !",
 )
 
@@ -463,11 +463,11 @@ HEH-Template vous permet de réaliser des présentations composées de slides av
 Les présentations sont composées de groupes de slides. Ceux ci sont créés avec la fonction `slidegroup`. Par exemple:
 
 ```typst
-#import "@preview/heh-template:1.0.0": heh_presentation, slidegroup, slide
+#import "@preview/heh-template:1.0.0": heh-presentation, slidegroup, slide
 
-#show: heh_presentation.with(
+#show: heh-presentation.with(
   ... // config
-  handout_mode: false // Active le mode "handout" (supprime les animations)
+  handout-mode: false // Active le mode "handout" (supprime les animations)
 )
 
 

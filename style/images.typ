@@ -1,7 +1,7 @@
-#import "/utils/states.typ": heh_config
+#import "/utils/states.typ": heh-config
 
-#let heh_images_defaults(doc) = context {
-  let config = heh_config.get()
+#let heh-images-defaults(doc) = context {
+  let config = heh-config.get()
   show image: it => {
     if (
       config.print.monochromeimages
@@ -11,10 +11,10 @@
       import "@preview/grayness:0.8.0": plg
       let source = read(it.source, encoding: none)
 
-      let is_svg = source.slice(0, 1).at(0) == str.to-unicode("<")
+      let is-svg = source.slice(0, 1).at(0) == str.to-unicode("<")
 
-      let graybytes = if is_svg {
-        plg.svg_grayscale(source)
+      let graybytes = if is-svg {
+        plg.svg-grayscale(source)
       } else {
         plg.grayscale(source)
       }

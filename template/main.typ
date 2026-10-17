@@ -1,16 +1,16 @@
 #import "@preview/heh-template:1.0.0": *
 
-#show: heh_document.with(
-  document_config_fn: config.default_document_config.with(
-    doc_title: "Titre du document",
-    doc_description: "Description du document",
-    formation_name: none,
-    orientation_name: none,
+#show: heh-document.with(
+  document-config-fn: config.default-document-config.with(
+    title: "Titre du document",
+    description: "Description du document",
+    formation: none,
+    orientation: none,
     authors: (
       ("Auteur", "john.doe@example.com"),
     ),
   ),
-  print_config_fn: config.default_print_config.with(
+  print-config-fn: config.default-print-config.with(
     monochrome: "monochrome" in sys.inputs and sys.inputs.monochrome == "true",
   ),
 )

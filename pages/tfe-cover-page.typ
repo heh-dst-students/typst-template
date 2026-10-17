@@ -1,15 +1,15 @@
-#import "/utils/utils.typ": heh_logo;
-#import "/components/headers/headers.typ": logo_year_title;
-#import "/utils/states.typ": heh_config
+#import "/utils/utils.typ": heh-logo
+#import "/components/headers/headers.typ": logo-year-title
+#import "/utils/states.typ": heh-config
 
-#let tfe_cover_page(
-  show_year: false,
+#let tfe-cover-page(
+  show-year: false,
 ) = context {
   set page(margin: (x: 45pt, y: 45pt), header: none, footer: none)
   set text(font: ("Roboto", "Inter"), size: 14pt)
   show link: set text(fill: black)
-  let config = heh_config.get()
-  logo_year_title(show_title: false)
+  let config = heh-config.get()
+  logo-year-title(show-title: false)
 
   v(.4fr)
 
@@ -21,8 +21,8 @@
       spacing: 100% + 2pt,
     )[
       HAUTE ÉCOLE DE LA COMMUNAUTÉ FRANÇAISE EN HAINAUT \
-      #config.campus.naming.full_name \
-      #config.campus.contact.address_line1 - #config.campus.contact.address_line2
+      #config.campus.naming.full-name \
+      #config.campus.contact.address-line1 - #config.campus.contact.address-line2
     ],
   )
 
@@ -31,7 +31,7 @@
   align(
     center,
     text(size: 16pt, weight: "bold")[
-      #config.document.doc_title
+      #config.document.title
     ],
   )
 
@@ -40,22 +40,22 @@
   align(
     center,
     text(size: 12pt)[
-      #config.document.doc_description
+      #config.document.description
     ],
   )
 
   v(1fr)
 
-  let columns_amount = 2
-  if (show_year) {
-    columns_amount = 3
+  let columns-amount = 2
+  if (show-year) {
+    columns-amount = 3
   }
 
-  columns(columns_amount)[
-    Promoteur.trice interne : #config.document.internal_promoter
+  columns(columns-amount)[
+    Promoteur.trice interne : #config.document.internal-promoter
     #colbreak()
-    #if (show_year) {
-      align(center, config.document.exam_session)
+    #if (show-year) {
+      align(center, config.document.exam-session)
       colbreak()
     }
     #align(right, {
@@ -78,4 +78,4 @@
   pagebreak()
 }
 
-#tfe_cover_page()
+#tfe-cover-page()

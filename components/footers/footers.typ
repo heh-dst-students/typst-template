@@ -1,4 +1,4 @@
-#import "page_numbers.typ": page_numbers
-#import "page_numbers_side.typ": page_numbers_side
-#import "presentation_footer.typ": presentation_footer
+#import "page-numbers.typ": page-numbers
+#import "page-numbers-side.typ": page-numbers-side
+#import "presentation-footer.typ": presentation-footer
 
