@@ -1,5 +1,5 @@
 #import "./lib.typ": (
-  campus, config, heh_presentation_template, important, info, slide, slidegroup,
+  campus, config, heh_presentation, important, info, slide, slidegroup,
 )
 
 #import "@preview/polylux:0.4.0": item-by-item, one-by-one, uncover
@@ -7,7 +7,7 @@
 #import "@preview/cetz:0.5.2"
 #import "@preview/cetz-plot:0.1.3"
 
-#show: heh_presentation_template.with(
+#show: heh_presentation.with(
   document_config_fn: config.default_document_config.with(
     doc_title: "Présentation du HEH-Template",
     doc_description: "Présentation de démonstration de HEH-Template",

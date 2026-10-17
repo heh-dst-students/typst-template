@@ -1,6 +1,6 @@
 #import "@preview/heh-template:1.0.0": *
 
-#show: heh_document_template.with(
+#show: heh_document.with(
   document_config_fn: config.default_document_config.with(
     doc_title: "Titre du document",
     doc_description: "Description du document",

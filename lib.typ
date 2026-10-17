@@ -16,5 +16,5 @@
 #import "/components/boxes.typ": hint, important, info, silly
 #import "/components/double_table.typ": double_table
 
-#import "/templates.typ" : heh_document_template, heh_presentation_template, heh_tfe_template
-
+#import "/templates.typ": heh_document, heh_presentation, heh_tfe
+#import "@preview/polylux:0.4.0": enable-handout-mode, slide

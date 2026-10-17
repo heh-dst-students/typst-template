@@ -37,10 +37,10 @@ Pour utiliser le package, vous n'avez qu'a ajouter la ligne `#import "@preview/h
 
 Pour créer un document simple il suffit d'instancier le template de document avec les paramètres suivants:
 ```typst
-#import "@preview/heh-template:1.0.0": heh_document_template, campus, config
+#import "@preview/heh-template:1.0.0": heh_document, campus, config
 
 // Appel du template en utilisant le style du département technique (DST)
-#show: heh_document_template.with(
+#show: heh_document.with(
   campus_config_fn: campus.dst_config,
   document_config_fn: config.default_document_config
 )

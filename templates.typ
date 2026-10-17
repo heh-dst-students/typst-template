@@ -31,7 +31,7 @@
   doc
 }
 
-#let heh_document_template(
+#let heh_document(
   document_config_fn: config.default_document_config,
   print_config_fn: config.default_print_config,
   campus_config_fn: campus.dst_config,
@@ -86,7 +86,7 @@
   doc
 }
 
-#let heh_presentation_template(
+#let heh_presentation(
   document_config_fn: config.default_document_config,
   print_config_fn: config.default_print_config,
   campus_config_fn: campus.dst_config,
@@ -135,7 +135,7 @@
   doc
 }
 
-#let heh_tfe_template(
+#let heh_tfe(
   document_config_fn: config.default_document_config,
   print_config_fn: config.default_print_config,
 
